@@ -31,7 +31,7 @@ export default function Navbar() {
                 <a>Home</a>
               </li>
               <li>
-                <a>Registration Form</a>
+                <Link to="/registrationform">Registration Form</Link>
               </li>
               <li>
                 <a>Assignment Form</a>
@@ -48,7 +48,7 @@ export default function Navbar() {
             </ul>
           </div>
           <a className="normal-case text-xl flex items-center ">
-            <img src={logo} className="w-16 pr-4" />
+            <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
             <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
               Computer Science and <br />
               Telecommunication Engineering
@@ -58,22 +58,22 @@ export default function Navbar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0 hover:bg-black-400">
             <li>
-              <a>Home</a>
+              <a href="#">Home</a>
             </li>
             <li>
-              <a>Registration Form</a>
+              <Link to="/registrationform">Registration Form</Link>
             </li>
             <li>
-              <a>Assignment Form</a>
+              <a href="#">Assignment Form</a>
             </li>
             <li>
-              <a>Course Materials</a>
+              <a href="#">Course Materials</a>
             </li>
             <li>
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <a>Admin</a>
+              <a href="#">Admin</a>
             </li>
           </ul>
         </div>

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import InputField from "../Common/InputField";
+import SubmitBtn from "../Common/SubmitBtn";
 
 export default function Login() {
   const [studentID, setStudentID] = useState("");
@@ -43,40 +45,22 @@ export default function Login() {
           </div>
         </>
       )}
-      <div className="max-w-sm mx-auto text-center border mx-auto py-12 px-5">
+      <div className="max-w-sm mx-auto text-center border mx-auto py-5 px-5">
         <form onSubmit={handleStudnetLogin}>
-          <div className="form-control w-full max-w-sm">
-            <label className="label">
-              <span className="label-text">Student ID:</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Stduent ID"
-              className="input input-bordered w-full max-w-sm"
-              name="studentID"
-              onChange={(e) => setStudentID(e.target.value)}
-              value={studentID}
-            />
-          </div>
-          <div className="form-control w-full max-w-sm mt-4">
-            <label className="label">
-              <span className="label-text">Password:</span>
-            </label>
-            <input
-              type="password"
-              placeholder="Password"
-              className="input input-bordered w-full max-w-sm"
-              name="studentPassword"
-              onChange={(e) => setStudentPassword(e.target.value)}
-              value={stduentPassword}
-            />
-          </div>
-          <button
-            className="btn w-full mt-4 bg-blue-900 hover:bg-blue-800 max-w-xs"
-            type="submit"
-          >
-            Login
-          </button>
+          <InputField
+            setField={setStudentID}
+            fieldValue={studentID}
+            label="Student ID"
+            type="text"
+          />
+
+          <InputField
+            setField={setStudentPassword}
+            fieldValue={stduentPassword}
+            label="Password"
+            type="password"
+          />
+          <SubmitBtn />
         </form>
       </div>
     </div>
