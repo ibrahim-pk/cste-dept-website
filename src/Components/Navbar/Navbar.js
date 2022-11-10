@@ -31,7 +31,7 @@ export default function Navbar() {
                 <a>Home</a>
               </li>
               <li>
-                <Link to="/registrationform">Registration Form</Link>
+                <Link to="/myregistrationform">Registration Form</Link>
               </li>
               <li>
                 <a>Assignment Form</a>
@@ -61,7 +61,7 @@ export default function Navbar() {
               <a href="#">Home</a>
             </li>
             <li>
-              <Link to="/registrationform">Registration Form</Link>
+              <Link to="/myregistrationform">Registration Form</Link>
             </li>
             <li>
               <a href="#">Assignment Form</a>

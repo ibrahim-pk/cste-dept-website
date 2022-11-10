@@ -66,7 +66,7 @@ export default function RegistrationForm() {
     console.log(name, studentID, course1Code);
   });
   return (
-    <div className="mx-auto max-w-5xl w-full px-4 mt-16 mb-4">
+    <div className="mx-auto max-w-screen-xl	 w-full px-4 mt-16 mb-4">
       <h2 className="text-3xl mb-4 text-center">Registration Form</h2>
       <form action="" className="w-full">
         <div className="md:flex md:gap-2">
@@ -428,8 +428,9 @@ export default function RegistrationForm() {
             </div>
           </li>
         </ol>
-        <div className="mx-auto w-full text-center">
-          <SubmitBtn></SubmitBtn>
+
+        <div className="mx-auto w-full text-center my-2">
+          <SubmitBtn value="Submit"></SubmitBtn>
         </div>
       </form>
     </div>

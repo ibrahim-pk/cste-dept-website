@@ -60,7 +60,7 @@ export default function Login() {
             label="Password"
             type="password"
           />
-          <SubmitBtn />
+          <SubmitBtn value="Login" />
         </form>
       </div>
     </div>
