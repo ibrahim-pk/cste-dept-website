@@ -48,7 +48,10 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <a className="normal-case  text-3xl xl:text-xl flex items-center ">
+          <Link
+            to="/"
+            className="normal-case  text-3xl xl:text-xl flex items-center "
+          >
             <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
             <span className="font-semibold hidden xl:block text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
               Computer Science & <br />
@@ -57,7 +60,7 @@ export default function Navbar() {
             <span className="font-semibold block xl:hidden text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
               CSTE
             </span>
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex flex-1">
           <ul className="menu menu-horizontal p-0 hover:bg-black-400">

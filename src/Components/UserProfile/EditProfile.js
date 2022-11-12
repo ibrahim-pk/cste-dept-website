@@ -84,6 +84,12 @@ export default function EditProfile() {
           label="Contact No"
           requiredField="true"
         ></InputField>
+        <p className="mt-2 text-sm">Upload Photo:</p>
+        <input
+          type="file"
+          className="file-input file-input-bordered w-full max-w-xs mt-2"
+        />
+
         <div className="w-full text-center mx-auto">
           <SubmitBtn value="Edit"></SubmitBtn>
         </div>
