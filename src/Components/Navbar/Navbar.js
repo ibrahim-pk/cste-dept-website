@@ -31,16 +31,14 @@ export default function Navbar() {
                 <a>Home</a>
               </li>
               <li>
-                <Link to="/myregistrationform">Registration Form</Link>
+                <Link to="/registrationform">Registration </Link>
+              </li>
+
+              <li>
+                <Link to="/coverpagegenerator">Cover Page</Link>
               </li>
               <li>
-                <Link to="/registrationform">Form Fill-Up</Link>
-              </li>
-              <li>
-                <Link to="/coverpagegenerator">Assignment Form</Link>
-              </li>
-              <li>
-                <a>Course Materials</a>
+                <Link to="/coursematerials">Materials</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>
@@ -64,18 +62,18 @@ export default function Navbar() {
         <div className="navbar-center hidden lg:flex flex-1">
           <ul className="menu menu-horizontal p-0 hover:bg-black-400">
             <li>
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/myregistrationform">Registration Form</Link>
-            </li>
-            <li>
-              <Link to="/registrationform">Form Fill Up</Link>
-            </li>
-            <li>
-              <Link to="/coverpagegenerator">Assignment Form</Link>
+              <Link to="/registrationform">Registration</Link>
             </li>
 
+            <li>
+              <Link to="/coverpagegenerator">Cover Page</Link>
+            </li>
+            <li>
+              <Link to="/coursematerials">Materials</Link>
+            </li>
             <li>
               <Link to="/login">Login</Link>
             </li>
@@ -85,18 +83,26 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="navbar-end ">
-          <div className="flex items-center align-middle items-center	">
-            <div className="avatar">
-              <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909__340.png" />
+          <div className="dropdown dropdown-bottom dropdown-end">
+            <label tabIndex={0} className=" m-1 cursor-pointer">
+              <div className="avatar">
+                <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src="https://placeimg.com/192/192/people" />
+                </div>
               </div>
-            </div>
-            <div className="ml-4">
-              <h5>
-                Greetings, <strong>Mohammad</strong>
-              </h5>
-              <Link to="/myprofile">Dashboard</Link>
-            </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <div className="p-2">
+                <strong>Borhan</strong>
+                <p>ASH2101008M</p>
+              </div>
+              <li>
+                <Link to="/myprofile">Dashboard</Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

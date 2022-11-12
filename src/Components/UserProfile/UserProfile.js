@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AssignmentForm from "../AssignmentCoverPage/AssignmentForm";
 import Loading from "../Common/Loading";
-import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import RegistrationFormView from "../RegistrationForm/RegistrationFormView";
 import styles from "./UserProfile.css";
+import EditProfile from "./EditProfile";
+import Result from "./Result";
+
 export default function () {
   const [page, setPage] = useState();
+
   return (
     <div>
       <div className="drawer">
@@ -34,22 +38,28 @@ export default function () {
               />
             </svg>
           </label>
-          <div className="flex-1">
+          <div className="flex-1 ">
             {page ? (
               <>
-                {page === "RegistrationForm" && <RegistrationForm />}
                 {page === "RegistrationView" && <RegistrationFormView />}
-                {page === "AssignmentForm" && <AssignmentForm />}
+
+                {page == "editProfile" && <EditProfile />}
+                {page == "Result" && <Result />}
               </>
             ) : (
-              <div className="pt-2 px-5 flex-1 border-l flex-1  mb-4">
+              <div className="pt-2 px-5 mx-auto   mb-4  max-w-screen-xl	">
                 <h2 className="text-2xl">
                   Welcome,{" "}
                   <span className="font-semibold text-blue-900">
                     Mohammad Borhan
                   </span>
                 </h2>
-
+                <button
+                  onClick={() => setPage("editProfile")}
+                  className="text-right w-full float-right block font-semibold mt-4"
+                >
+                  Edit Profile
+                </button>
                 <div>
                   <table className="border mt-5">
                     <tbody>
@@ -81,69 +91,12 @@ export default function () {
                         <td className="bg-slate-100 border">Term</td>
                         <td className="">01</td>
                       </tr>
+                      <tr>
+                        <td className="bg-slate-100 border">Contact No:</td>
+                        <td className="">01</td>
+                      </tr>
                     </tbody>
                   </table>
-                  <div className="flex gap-4">
-                    <div className="flex-1">
-                      <h2 className="my-5 text-xl">Result</h2>
-                      <table className=" border mt-2">
-                        <tbody>
-                          <tr className="border ">
-                            <td className="bg-slate-100 border">1-1</td>
-                            <td className="">Borhan</td>
-                          </tr>
-                          <tr className="border ">
-                            <td className="bg-slate-100 border">1-2</td>
-                            <td className="">ABC</td>
-                          </tr>
-                          <tr>
-                            <td className="bg-slate-100 border">2-1</td>
-                            <td className="">DEF</td>
-                          </tr>
-                          <tr className="border ">
-                            <td className="bg-slate-100 border">2-2</td>
-                            <td className="">CSTE</td>
-                          </tr>
-                          <tr className="border ">
-                            <td className="bg-slate-100 border">3-1</td>
-                            <td className="">2200121</td>
-                          </tr>
-                          <tr>
-                            <td className="bg-slate-100 border">3-2</td>
-                            <td className="">01</td>
-                          </tr>
-                          <tr>
-                            <td className="bg-slate-100 border">4-1</td>
-                            <td className="">01</td>
-                          </tr>
-                          <tr>
-                            <td className="bg-slate-100 border">4-4</td>
-                            <td className="">01</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-
-                    <div className="flex-1">
-                      <h2 className="my-5 text-xl">Result</h2>
-                      <table className=" border mt-2 ">
-                        <tbody>
-                          <tr className="border ">
-                            <td className="bg-slate-100 border">1-1</td>
-                            <td className="">Borhan</td>
-                          </tr>
-                          <tr className="border ">
-                            <td className="bg-slate-100 border">1-2</td>
-                            <td className="">ABC</td>
-                          </tr>
-                          <tr>
-                            <td className="bg-slate-100 border">2-1</td>
-                            <td className="">DEF</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
                 </div>
               </div>
             )}
@@ -155,20 +108,15 @@ export default function () {
             <li>
               <button onClick={() => setPage("")}>Home</button>
             </li>
-            <li>
-              <button onClick={() => setPage("RegistrationForm")}>
-                Registration Form
-              </button>
-            </li>
+
             <li>
               <button onClick={() => setPage("RegistrationView")}>
                 Registration View
               </button>
             </li>
+
             <li>
-              <button onClick={() => setPage("AssignmentForm")}>
-                AssignmentForm
-              </button>
+              <button onClick={() => setPage("Result")}>Result</button>
             </li>
           </ul>
         </div>

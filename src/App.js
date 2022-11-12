@@ -8,6 +8,8 @@ import RegistrationFormView from "./Components/RegistrationForm/RegistrationForm
 import ViewRegistrationPage from "./Components/RegistrationForm/ViewRegistrationPage";
 import AssignmentForm from "./Components/AssignmentCoverPage/AssignmentForm";
 import UserProfile from "./Components/UserProfile/UserProfile";
+import EditProfile from "./Components/UserProfile/EditProfile";
+import CourseMaterials from "./Components/CourseMaterials/CourseMaterials";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         />
         <Route path="/coverpagegenerator" element={<AssignmentForm />}></Route>
         <Route path="/myprofile" element={<UserProfile />}></Route>
+        <Route path="/editprofile" element={<EditProfile />}></Route>
+        <Route path="/coursematerials" element={<CourseMaterials />}></Route>
       </Routes>
     </>
   );

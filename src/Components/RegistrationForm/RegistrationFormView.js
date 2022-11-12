@@ -64,8 +64,8 @@ export default function () {
       {downloading ? (
         <Loading data="Downloading"></Loading>
       ) : (
-        <div className="mx-auto max-w-screen-xl	 w-full px-4 mt-16 mb-4">
-          <h2 className="text-3xl mb-4 text-center">Registration Form</h2>
+        <div className="pt-2 px-5 max-w-screen-lg mx-auto w-full mb-4">
+          <h2 className="text-2xl  ">Registration Form</h2>
           <Link to="/registrationform" className="btn btn-ghost my-4">
             Register
           </Link>
@@ -77,6 +77,7 @@ export default function () {
                   <th>Year</th>
                   <th>Term</th>
                   <th>Date</th>
+                  <th></th>
                   <th></th>
                   <th></th>
                   <th></th>
@@ -106,6 +107,15 @@ export default function () {
                     >
                       View
                     </Link>
+                  </td>
+                  <td>
+                    {" "}
+                    <button
+                      className="btn btn-ghost btn-xs"
+                      onClick={() => handleDownloadPDF(123)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               </tbody>
