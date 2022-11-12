@@ -37,7 +37,7 @@ export default function Navbar() {
                 <Link to="/registrationform">Form Fill-Up</Link>
               </li>
               <li>
-                <a>Assignment Form</a>
+                <Link to="/coverpagegenerator">Assignment Form</Link>
               </li>
               <li>
                 <a>Course Materials</a>
@@ -50,18 +50,18 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <a className="normal-case text-xl flex items-center ">
+          <a className="normal-case  text-3xl xl:text-xl flex items-center ">
             <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
-            <span className="font-semibold hidden md:block text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
-              Computer Science and <br />
+            <span className="font-semibold hidden xl:block text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+              Computer Science & <br />
               Telecommunication Engineering
             </span>
-            <span className="font-semibold block md:hidden text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+            <span className="font-semibold block xl:hidden text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
               CSTE
             </span>
           </a>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex flex-1">
           <ul className="menu menu-horizontal p-0 hover:bg-black-400">
             <li>
               <a href="#">Home</a>
@@ -70,14 +70,12 @@ export default function Navbar() {
               <Link to="/myregistrationform">Registration Form</Link>
             </li>
             <li>
-              <Link to="/registrationform">Form Fill-Up</Link>
+              <Link to="/registrationform">Form Fill Up</Link>
             </li>
             <li>
-              <a href="#">Assignment Form</a>
+              <Link to="/coverpagegenerator">Assignment Form</Link>
             </li>
-            <li>
-              <a href="#">Course Materials</a>
-            </li>
+
             <li>
               <Link to="/login">Login</Link>
             </li>

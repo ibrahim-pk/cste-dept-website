@@ -6,6 +6,7 @@ import Login from "./Components/Login/Login";
 import RegistrationForm from "./Components/RegistrationForm/RegistrationForm";
 import RegistrationFormView from "./Components/RegistrationForm/RegistrationFormView";
 import ViewRegistrationPage from "./Components/RegistrationForm/ViewRegistrationPage";
+import AssignmentForm from "./Components/AssignmentCoverPage/AssignmentForm";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           path="/viewregistrationform/:id"
           element={<ViewRegistrationPage />}
         />
+        <Route path="/coverpagegenerator" element={<AssignmentForm />}></Route>
       </Routes>
     </>
   );

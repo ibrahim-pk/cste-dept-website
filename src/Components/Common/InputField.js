@@ -6,9 +6,10 @@ export default function InputField({
   label,
   type,
   className,
+  requiredField,
 }) {
   return (
-    <div className={`form-control w-full ${className}`}>
+    <div className={`form-control w-full ${className} `}>
       <label className="label">
         <span className="label-text"> {label}:</span>
       </label>
@@ -19,6 +20,7 @@ export default function InputField({
         name={label}
         onChange={(e) => setField(e.target.value)}
         value={fieldValue}
+        required={requiredField}
       />
     </div>
   );
