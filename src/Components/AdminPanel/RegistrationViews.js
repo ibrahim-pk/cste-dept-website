@@ -8,7 +8,9 @@ export default function RegistrationViews({ year, term }) {
       <h2 className="text-2xl mb-2 border-b pb-2">
         Registration ({year}-{term})
       </h2>
-      <div className="w-full overflow-hidden my-2">
+      <div className="w-full overflow-hidden my-2 flex items-end justify-between">
+        <button className="btn btn-ghost btn-xs">Delete All</button>
+
         <InputField
           type="text"
           label="Search"
