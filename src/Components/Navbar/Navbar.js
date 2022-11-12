@@ -49,9 +49,12 @@ export default function Navbar() {
           </div>
           <a className="normal-case text-xl flex items-center ">
             <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+            <span className="font-semibold hidden md:block text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
               Computer Science and <br />
               Telecommunication Engineering
+            </span>
+            <span className="font-semibold block md:hidden text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+              CSTE
             </span>
           </a>
         </div>

@@ -45,11 +45,12 @@ export default function () {
       // var imgData = new Image();
 
       const imgData = canvas.toDataURL("image/png");
+
       // imgData.width = 500;
       const pdf = new jsPDF();
       input.setAttribute("hidden", "true");
 
-      pdf.addImage(imgData, "PNG", 15, 15, 180, 220);
+      pdf.addImage(imgData, "PNG", 0, 0, 210, 300);
 
       // pdf.output('dataurlnewwindow');
       pdf.save(`dowload.pdf`);
@@ -109,10 +110,20 @@ export default function () {
               </tbody>
             </table>
 
-            <div id="makePDF" hidden>
-              <RegistrationFormPDF
-                studentDetails={studentDetails}
-              ></RegistrationFormPDF>
+            <div
+              id="makePDF"
+              hidden
+              className="bg-blue-700  mx-auto"
+              style={{ width: "100%", height: "100%" }}
+            >
+              <div
+                className="px-10 py-10"
+                style={{ width: "100%", height: "100%" }}
+              >
+                <RegistrationFormPDF
+                  studentDetails={studentDetails}
+                ></RegistrationFormPDF>
+              </div>
             </div>
           </div>
         </div>
