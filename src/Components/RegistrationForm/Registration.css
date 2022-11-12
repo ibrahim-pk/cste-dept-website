@@ -5,3 +5,6 @@ td, th{
 th{
     background-color: #EEE;
 }
+img {
+    display: initial !important;
+}

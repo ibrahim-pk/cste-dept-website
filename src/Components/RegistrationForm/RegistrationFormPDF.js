@@ -20,13 +20,13 @@ export default function RegistrationFormPDF({ studentDetails }) {
         <div className="flex gap-2">
           <div className="flex w-2/3 gap-2 items-end">
             <p className="font-semibold">Name of Student</p>
-            <div className="flex-1 border-black	border-b text-xl pb-3 text-xl  pb-3">
+            <div className="flex-1 border-black	border-b text-xl text-xl">
               {studentDetails?.name}
             </div>
           </div>
           <div className="flex flex-1 items-end gap-2">
             <p className="font-semibold">Roll</p>
-            <div className="flex-1 border-black	border-b text-xl pb-3 text-xl pb-3">
+            <div className="flex-1 border-black	border-b text-xl  text-xl">
               {studentDetails?.studentID}
             </div>
           </div>
@@ -34,13 +34,13 @@ export default function RegistrationFormPDF({ studentDetails }) {
         <div className="flex flex-1 items-end gap-2">
           <div className="flex w-2/3 gap-2 items-end">
             <p className="font-semibold">Department</p>
-            <div className="flex-1 border-black	border-b text-xl pb-3">
+            <div className="flex-1 border-black	border-b text-xl ">
               {studentDetails?.department}
             </div>
           </div>
           <div className="flex flex-1 gap-2 items-end">
             <p className="font-semibold">Institute/Faculty</p>
-            <div className="flex-1 border-black	border-b text-xl pb-3">
+            <div className="flex-1 border-black	border-b text-xl ">
               {studentDetails?.institute}
             </div>
           </div>
@@ -48,19 +48,19 @@ export default function RegistrationFormPDF({ studentDetails }) {
         <div className="flex flex-1 items-end gap-2">
           <div className="flex flex-1 items-end gap-2">
             <p className="font-semibold">Year</p>
-            <div className="flex-1 border-black	border-b text-xl pb-3">
+            <div className="flex-1 border-black	border-b text-xl ">
               {studentDetails?.year}
             </div>
           </div>
           <div className="flex flex-1 gap-2 items-end">
             <p className="font-semibold">Term</p>
-            <div className="flex-1 border-black	border-b text-xl pb-3">
+            <div className="flex-1 border-black	border-b text-xl ">
               {studentDetails?.term}
             </div>
           </div>
           <div className="flex w-1/2 items-end gap-2">
             <p className="font-semibold">Session</p>
-            <div className="flex-1 border-black	border-b text-xl pb-3">
+            <div className="flex-1 border-black	border-b text-xl ">
               {studentDetails?.session}
             </div>
           </div>
@@ -236,7 +236,7 @@ export default function RegistrationFormPDF({ studentDetails }) {
           </tbody>
         </table>
         <div className="flex w-full items-center gap-4 my-6">
-          <div className="font-semibold">
+          <div className="font-semibold mt-12">
             Credit Completed <br />
             CGPA
           </div>
@@ -301,7 +301,7 @@ export default function RegistrationFormPDF({ studentDetails }) {
             </div>
           </div>
         </div>
-        <div className="flex py-4 border-black	border-b-2  my-4 pb-8">
+        <div className="flex py-4 border-black	border-b-2 items-center  my-4 pb-8">
           <h4 className="text-2xl mr-8">Credits Taken in current term</h4>
           <div className="border border-black w-64 h-12"></div>
         </div>
@@ -315,7 +315,7 @@ export default function RegistrationFormPDF({ studentDetails }) {
               </div>
               <div className="flex flex-1    gap-2">
                 <p className="font-semibold">Date</p>
-                <div className="flex-1 border-black	border-b text-xl pb-3"></div>
+                <div className="flex-1 border-black	border-b text-xl "></div>
               </div>
             </div>
           </div>
@@ -328,7 +328,7 @@ export default function RegistrationFormPDF({ studentDetails }) {
               </div>
               <div className="flex flex-1 gap-2  flex-end">
                 <p className="font-semibold">Date</p>
-                <div className="flex-1 border-black	border-b text-xl pb-3"></div>
+                <div className="flex-1 border-black	border-b text-xl "></div>
               </div>
             </div>
           </div>
@@ -344,7 +344,7 @@ export default function RegistrationFormPDF({ studentDetails }) {
               </div>
               <div className="flex flex-1  pb-2 gap-2  flex-end">
                 <p className="font-semibold">Date</p>
-                <div className="flex-1 border-black	border-b text-xl pb-3"></div>
+                <div className="flex-1 border-black	border-b text-xl "></div>
               </div>
             </div>
           </div>
@@ -352,11 +352,11 @@ export default function RegistrationFormPDF({ studentDetails }) {
             <div className="flex gap-2">
               <div className="flex w-2/3 gap-2 items-end pb-2">
                 <p className="font-semibold">Chairman</p>
-                <div className="flex-1 border-black	border-b text-xl pb-3"></div>
+                <div className="flex-1 border-black	border-b text-xl "></div>
               </div>
               <div className="flex flex-1  pb-2  gap-2">
                 <p className="font-semibold">Date</p>
-                <div className="flex-1 border-black	border-b text-xl pb-3"></div>
+                <div className="flex-1 border-black	border-b text-xl "></div>
               </div>
             </div>
           </div>

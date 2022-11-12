@@ -39,6 +39,7 @@ export default function () {
       quality: 1,
       scale: 5,
       dpi: 192,
+      scrollX: 0,
       scrollY: -window.scrollY,
     };
     html2canvas(input, options).then((canvas) => {
