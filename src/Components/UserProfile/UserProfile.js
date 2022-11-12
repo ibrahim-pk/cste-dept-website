@@ -12,7 +12,7 @@ export default function () {
 
   return (
     <div>
-      <div className="drawer">
+      <div className="drawer" id="drawer-user">
         <input
           id="my-drawer"
           type="checkbox"

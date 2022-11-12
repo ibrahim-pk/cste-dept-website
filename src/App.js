@@ -10,24 +10,80 @@ import AssignmentForm from "./Components/AssignmentCoverPage/AssignmentForm";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import EditProfile from "./Components/UserProfile/EditProfile";
 import CourseMaterials from "./Components/CourseMaterials/CourseMaterials";
+import AdminLogin from "./Components/Admin/Login/AdminLogin";
+import UserLayout from "./Components/Layout/UserLayout";
+import AdminPanel from "./Components/AdminPanel/AdminPanel";
+import AdminRegistration from "./Components/Admin/Login/AdminRegistration";
 
 function App() {
   return (
     <>
-      <Navbar></Navbar>
       <Routes>
-        <Route path="/"></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/registrationform" element={<RegistrationForm />}></Route>
-        <Route path="/myregistrationform" element={<RegistrationFormView />} />
+        <Route path="/" element={<UserLayout></UserLayout>}></Route>
+        <Route
+          path="/login"
+          element={
+            <UserLayout>
+              <Login></Login>
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/registrationform"
+          element={
+            <UserLayout>
+              <RegistrationForm />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/myregistrationform"
+          element={
+            <UserLayout>
+              <RegistrationFormView />
+            </UserLayout>
+          }
+        />
         <Route
           path="/viewregistrationform/:id"
           element={<ViewRegistrationPage />}
         />
-        <Route path="/coverpagegenerator" element={<AssignmentForm />}></Route>
-        <Route path="/myprofile" element={<UserProfile />}></Route>
-        <Route path="/editprofile" element={<EditProfile />}></Route>
-        <Route path="/coursematerials" element={<CourseMaterials />}></Route>
+        <Route
+          path="/coverpagegenerator"
+          element={
+            <UserLayout>
+              <AssignmentForm />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/myprofile"
+          element={
+            <UserLayout>
+              <UserProfile />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/editprofile"
+          element={
+            <UserLayout>
+              <EditProfile />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/coursematerials"
+          element={
+            <UserLayout>
+              <CourseMaterials />
+            </UserLayout>
+          }
+        ></Route>
+
+        <Route path="/admin/login" element={<AdminLogin />}></Route>
+        <Route path="/admin/dashboard" element={<AdminPanel />}></Route>
+        <Route path="/admin/register" element={<AdminRegistration />}></Route>
       </Routes>
     </>
   );

@@ -2,7 +2,7 @@ tr td:nth-child(odd) {
     width: 1%;
     white-space: nowrap;
 }
-.drawer{
+#drawer-user{
     height:calc(100vh - 92px);
     overflow-y: hidden;
 }
