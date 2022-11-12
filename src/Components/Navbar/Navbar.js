@@ -95,7 +95,7 @@ export default function Navbar() {
               <h5>
                 Greetings, <strong>Mohammad</strong>
               </h5>
-              <Link>Dashboard</Link>
+              <Link to="/myprofile">Dashboard</Link>
             </div>
           </div>
         </div>
