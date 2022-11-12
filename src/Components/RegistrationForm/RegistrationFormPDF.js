@@ -301,7 +301,7 @@ export default function RegistrationFormPDF({ studentDetails }) {
             </div>
           </div>
         </div>
-        <div className="flex py-4 border-black	border-b-2 items-center my-4 pb-8">
+        <div className="flex py-4 border-black	border-b-2  my-4 pb-8">
           <h4 className="text-2xl mr-8">Credits Taken in current term</h4>
           <div className="border border-black w-64 h-12"></div>
         </div>
