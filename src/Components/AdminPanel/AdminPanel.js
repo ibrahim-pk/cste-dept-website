@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import logo from "../../img/logo.png";
 import AddStudent from "./AddStudent";
+import AddTeacher from "./AddTeacher";
 import RegistrationViews from "./RegistrationViews";
 import ViewStudent from "./ViewStudent";
+import ViewTeacher from "./ViewTeacher";
 
 export default function AdminPanel() {
   const [page, setPage] = useState("");
   const [year, serYear] = useState("");
   const [term, setTerm] = useState("");
   return (
-    <div className="drawer drawer-mobile">
+    <div className="drawer drawer-mobile h-auto min-h-screen	">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden bg"
+          className="btn btn-ghost drawer-button lg:hidden bg"
         >
-          Open drawer
+          Menu
         </label>
-        <div className="border-l flex-1 w-full">
+        <div className="border-l flex-1 w-full overflow-y-scroll max-h-screen">
           <div className="border-b px-2 py-2 flex items-center justify-between w-full">
             <div>
               <h3 className="font-semibold">
@@ -29,15 +31,17 @@ export default function AdminPanel() {
             <button className="btn btn-ghost">Log out</button>
           </div>
           <div className="p-5">
-            {page == "addStudent" && <AddStudent />}
-            {page == "viewStudent" && <ViewStudent />}
-            {page == "viewRegistraion" && (
+            {page === "addStudent" && <AddStudent />}
+            {page === "viewStudent" && <ViewStudent />}
+            {page === "viewRegistraion" && (
               <RegistrationViews year={year} term={term} />
             )}
+            {page === "viewTeacher" && <ViewTeacher />}
+            {page === "addTeacher" && <AddTeacher />}
           </div>
         </div>
       </div>
-      <div className="drawer-side ">
+      <div className="drawer-side sticky">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu bg-gray-100 p-4 w-80 text-base-content">
           <div className="flex items-center flex-col">
@@ -53,6 +57,18 @@ export default function AdminPanel() {
               </li>
               <li>
                 <button onClick={() => setPage("viewStudent")}>View</button>
+              </li>
+            </ul>
+          </div>
+          <div tabindex="0" class="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div class="collapse-title font-medium">Teacher Panel</div>
+            <ul class="collapse-content menu">
+              <li>
+                <button onClick={() => setPage("addTeacher")}>Add</button>
+              </li>
+              <li>
+                <button onClick={() => setPage("viewTeacher")}>View</button>
               </li>
             </ul>
           </div>

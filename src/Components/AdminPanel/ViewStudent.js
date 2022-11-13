@@ -15,21 +15,36 @@ export default function ViewStudent() {
           className="max-w-xs float-right input-lg"
         ></InputField>
       </div>
-      <div className="">
+      <div className="overflow-x-auto">
         <table className="table table-compact table-zebra w-full">
           <thead>
             <tr>
               <th>Name</th>
               <th>Roll</th>
-              <th>Session</th>
               <th>Password</th>
+              <th>Email</th>
               <th className="w-16"></th>
               <th className="w-16"></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Cy Ganderton</td>
+              <td>
+                <div className="flex items-center space-x-3">
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img
+                        src="https://www.w3schools.com/howto/img_avatar.png"
+                        alt="Avatar Tailwind CSS Component"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-bold">Name</div>
+                    <div className="text-sm opacity-50">2020-21</div>
+                  </div>
+                </div>
+              </td>
               <td>Quality Control Specialist</td>
               <td>Blue</td>
               <td>Blue</td>
@@ -41,43 +56,22 @@ export default function ViewStudent() {
               </td>
             </tr>
             <tr>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-              <td>Blue</td>
               <td>
-                <button className="btn btn-ghost btn-xs">Edit</button>
+                <div className="flex items-center space-x-3">
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img
+                        src="https://www.w3schools.com/howto/img_avatar.png"
+                        alt="Avatar Tailwind CSS Component"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-bold">Name Name Name</div>
+                    <div className="text-sm opacity-50">2020-21</div>
+                  </div>
+                </div>
               </td>
-              <td>
-                <button className="btn btn-ghost btn-xs">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-              <td>Blue</td>
-              <td>
-                <button className="btn btn-ghost btn-xs">Edit</button>
-              </td>
-              <td>
-                <button className="btn btn-ghost btn-xs">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-              <td>Blue</td>
-              <td>
-                <button className="btn btn-ghost btn-xs">Edit</button>
-              </td>
-              <td>
-                <button className="btn btn-ghost btn-xs">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Cy Ganderton</td>
               <td>Quality Control Specialist</td>
               <td>Blue</td>
               <td>Blue</td>
@@ -90,10 +84,10 @@ export default function ViewStudent() {
             </tr>
           </tbody>
         </table>
-        <div className="btn-group grid grid-cols-2 w-80 mt-5 float-right">
-          <button className="btn btn-outline btn-xs">Previous page</button>
-          <button className="btn btn-outline btn-xs">Next</button>
-        </div>
+      </div>
+      <div className="btn-group grid grid-cols-2 w-80 mt-5 float-right">
+        <button className="btn btn-outline btn-xs">Previous page</button>
+        <button className="btn btn-outline btn-xs">Next</button>
       </div>
     </div>
   );

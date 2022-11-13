@@ -81,7 +81,7 @@ export default function Navbar() {
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <a href="#">Admin</a>
+              <Link to="/admin/dashboard">Admin</Link>
             </li>
           </ul>
         </div>

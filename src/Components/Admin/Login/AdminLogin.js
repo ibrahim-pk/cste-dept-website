@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import InputField from "../../Common/InputField";
 import logo from "../../../img/logo.png";
 import SubmitBtn from "../../Common/SubmitBtn";
+import { Link } from "react-router-dom";
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +32,9 @@ export default function AdminLogin() {
         <div className="mx-auto w-full text-center">
           <SubmitBtn value="Login"></SubmitBtn>
         </div>
+        <Link to="/admin/register" className="text-center my-3">
+          Register
+        </Link>
       </form>
     </div>
   );
