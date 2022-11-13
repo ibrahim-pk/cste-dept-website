@@ -39,8 +39,13 @@ export default function Result() {
     <div className="pt-2 px-5 max-w-screen-lg mx-auto w-full mb-4">
       <h2 className="text-2xl">Result</h2>
 
-      <div className=" my-5">
+      <h4 className="text-xl my-2">
+        CGPA : <span className="text-blue-900 font-semibold">3.25</span>
+      </h4>
+
+      <div className=" my-5 max-w-lg mx-auto">
         <Bar options={options} data={data} />
+        <p className="text-xs text-center">Term vs TGPA</p>
       </div>
     </div>
   );

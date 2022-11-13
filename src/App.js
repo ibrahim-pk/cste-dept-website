@@ -14,12 +14,20 @@ import AdminLogin from "./Components/Admin/Login/AdminLogin";
 import UserLayout from "./Components/Layout/UserLayout";
 import AdminPanel from "./Components/AdminPanel/AdminPanel";
 import AdminRegistration from "./Components/Admin/Login/AdminRegistration";
+import Home from "./Components/Home/Home";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<UserLayout></UserLayout>}></Route>
+        <Route
+          path="/"
+          element={
+            <UserLayout>
+              <Home />
+            </UserLayout>
+          }
+        ></Route>
         <Route
           path="/login"
           element={

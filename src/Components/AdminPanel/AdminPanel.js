@@ -21,7 +21,7 @@ export default function AdminPanel() {
           Menu
         </label>
         <div className="border-l flex-1 w-full overflow-y-scroll max-h-screen">
-          <div className="border-b px-2 py-2 flex items-center justify-between w-full">
+          <div className="border-b px-2 py-2 flex items-center justify-between w-full ">
             <div>
               <h3 className="font-semibold">
                 Welcome, <span className="text-blue-800">Borhan</span>
@@ -30,7 +30,7 @@ export default function AdminPanel() {
             </div>
             <button className="btn btn-ghost">Log out</button>
           </div>
-          <div className="p-5">
+          <div className="p-5 mb-10">
             {page === "addStudent" && <AddStudent />}
             {page === "viewStudent" && <ViewStudent />}
             {page === "viewRegistraion" && (
@@ -41,17 +41,17 @@ export default function AdminPanel() {
           </div>
         </div>
       </div>
-      <div className="drawer-side sticky">
+      <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu bg-gray-100 p-4 w-80 text-base-content">
           <div className="flex items-center flex-col">
             <img src={logo} alt="NSTU LOGO" className="w-16" />
             <h2 className="font-semibold text-2xl py-2">CSTE, NSTU</h2>
           </div>
-          <div tabindex="0" class="collapse collapse-arrow">
+          <div tabIndex="0" className="collapse collapse-arrow">
             <input type="checkbox" />
-            <div class="collapse-title font-medium">Student</div>
-            <ul class="collapse-content menu">
+            <div className="collapse-title font-medium">Student</div>
+            <ul className="collapse-content menu">
               <li>
                 <button onClick={() => setPage("addStudent")}>Add</button>
               </li>
@@ -60,10 +60,10 @@ export default function AdminPanel() {
               </li>
             </ul>
           </div>
-          <div tabindex="0" class="collapse collapse-arrow">
+          <div tabIndex="0" className="collapse collapse-arrow">
             <input type="checkbox" />
-            <div class="collapse-title font-medium">Teacher Panel</div>
-            <ul class="collapse-content menu">
+            <div className="collapse-title font-medium">Teacher Panel</div>
+            <ul className="collapse-content menu">
               <li>
                 <button onClick={() => setPage("addTeacher")}>Add</button>
               </li>
@@ -72,10 +72,10 @@ export default function AdminPanel() {
               </li>
             </ul>
           </div>
-          <div tabindex="0" class="collapse collapse-arrow">
+          <div tabIndex="0" className="collapse collapse-arrow">
             <input type="checkbox" />
-            <div class="collapse-title font-medium">Registration</div>
-            <ul class="collapse-content menu">
+            <div className="collapse-title font-medium">Registration</div>
+            <ul className="collapse-content menu">
               <li>
                 <button
                   onClick={() => {

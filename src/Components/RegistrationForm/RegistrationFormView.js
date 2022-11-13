@@ -9,6 +9,7 @@ import Loading from "../Common/Loading";
 export default function () {
   const [studentDetails, setStudentDetails] = useState({});
   const [downloading, setDownloading] = useState(false);
+  const [regId, setRegId] = useState("");
 
   const handleDownloadPDF = async (id) => {
     await setStudentDetails({
@@ -101,21 +102,16 @@ export default function () {
                     </button>
                   </td>
                   <td>
-                    <Link
-                      to="/viewregistrationform/123456"
+                    <label
+                      htmlFor="my-modal-6"
+                      onClick={() => setRegId("registration id")}
                       className="btn btn-ghost btn-xs"
                     >
                       View
-                    </Link>
+                    </label>
                   </td>
                   <td>
-                    {" "}
-                    <button
-                      className="btn btn-ghost btn-xs"
-                      onClick={() => handleDownloadPDF(123)}
-                    >
-                      Delete
-                    </button>
+                    <button className="btn btn-ghost btn-xs">Delete</button>
                   </td>
                 </tr>
               </tbody>
@@ -134,6 +130,42 @@ export default function () {
                 <RegistrationFormPDF
                   studentDetails={studentDetails}
                 ></RegistrationFormPDF>
+              </div>
+            </div>
+          </div>
+          <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+          <div className="modal">
+            <div className="modal-box w-11/12 max-w-5xl">
+              <div className="modal-action">
+                <label htmlFor="my-modal-6" className="btn">
+                  X
+                </label>
+              </div>
+
+              <div className="py-4">
+                <RegistrationFormPDF
+                  studentDetails={{
+                    name: "Borhan",
+                    studentID: "ASH2101008M",
+                    department: "CSTE",
+                    hall: "ASH",
+                    session: "2020-21",
+                    institute: "Eng.",
+                    year: "01",
+                    term: "01",
+                    course1Code: "CSTE1101",
+                    course1Title: "Computer Fundamentals",
+                    course1Credits: "4.00",
+                    course2Code: "CSTE1101",
+                    course2Title: "Computer Fundamentals",
+                    course2Credits: "4.00",
+
+                    course3Code: "CSTE1101",
+                    course3Title:
+                      "Computer Fundamentals Computer Fundamentals Computer FundamentalsComputer Fundamentals Computer Fundamentals Computer Fundamentals",
+                    course3Credits: "4.00",
+                  }}
+                />
               </div>
             </div>
           </div>
