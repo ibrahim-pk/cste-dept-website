@@ -7,6 +7,8 @@ import styles from "./UserProfile.css";
 import EditProfile from "./EditProfile";
 import Result from "./Result";
 import Suggestion from "./Suggestion/Suggestion";
+import HSCForm from "./HscSscForm/HSCForm";
+import SSCForm from "./HscSscForm/SSCForm";
 
 export default function () {
   const [page, setPage] = useState();
@@ -47,6 +49,8 @@ export default function () {
                 {page == "editProfile" && <EditProfile />}
                 {page == "Result" && <Result />}
                 {page == "Suggestion" && <Suggestion />}
+                {page == "HSCForm" && <HSCForm />}
+                {page == "SSCForm" && <SSCForm />}
               </>
             ) : (
               <div className="pt-2 px-5 mx-auto   mb-4  max-w-screen-xl	">
@@ -192,6 +196,12 @@ export default function () {
 
             <li>
               <button onClick={() => setPage("Result")}>Result</button>
+            </li>
+            <li>
+              <button onClick={() => setPage("HSCForm")}>HSC Details</button>
+            </li>
+            <li>
+              <button onClick={() => setPage("SSCForm")}>SSC Details</button>
             </li>
             <li>
               <button onClick={() => setPage("Suggestion")}>Suggestion</button>
