@@ -25,16 +25,16 @@ export default function AssignmentCoverPageDesign({
         background: `url(${logo2}) no-repeat center center`,
       }}
     >
-      <div className=" justify-center gap-4 w-full flex mx-auto items-center gap-2">
+      <div className="flex-col justify-center gap-4 w-full flex mx-auto items-center gap-2">
         <img src={logo} alt="NSTU" className="w-24" />
-        <div>
-          <h2 className="text-3xl text-blue-900">
+        <div className="w-full text-center">
+          <h2 className="text-3xl text-blue-900 text-center">
             Noakhali Science & Technology University
           </h2>
           <p>Noakhali-3814, Bangladesh</p>
         </div>
       </div>
-      <div className="text-2xl ">
+      <div className="text-2xl text-center">
         <h2 className="mb-2">
           <span className="text-blue-900">{assignmentType} Title :</span>
           {title}
@@ -46,14 +46,14 @@ export default function AssignmentCoverPageDesign({
 
       <div className="flex space-between">
         <div className="w-1/2 p-4 border  border-blue-900 border-r-0">
-          <h2 className="text-blue-900 uppercase text-xl">Submitted by</h2>
+          <h2 className="text-blue-900 uppercase text-xl">Submitted to</h2>
           <h3 className="text-xl">{sirName}</h3>
           <h4>{sirRole}</h4>
           <h4>Department of {sirDept}</h4>
           <h4>Noakhali Science & Technology University</h4>
         </div>
         <div className="w-1/2  p-4  border border-blue-900">
-          <h2 className="text-blue-900 uppercase text-xl">Submitted to</h2>
+          <h2 className="text-blue-900 uppercase text-xl">Submitted by</h2>
           <h3 className="text-xl">{studentName}</h3>
           <h4>Roll : {roll}</h4>
           <h4>
