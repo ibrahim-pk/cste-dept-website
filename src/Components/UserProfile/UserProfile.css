@@ -3,6 +3,6 @@ tr td:nth-child(odd) {
     white-space: nowrap;
 }
 #drawer-user{
-    height:calc(100vh - 92px);
+    height:auto;
     overflow-y: hidden;
 }

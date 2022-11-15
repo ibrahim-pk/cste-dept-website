@@ -15,6 +15,9 @@ import UserLayout from "./Components/Layout/UserLayout";
 import AdminPanel from "./Components/AdminPanel/AdminPanel";
 import AdminRegistration from "./Components/Admin/Login/AdminRegistration";
 import Home from "./Components/Home/Home";
+import AllTeachers from "./Components/Teachers/AllTeachers";
+import TeacherDetails from "./Components/Teachers/TeacherDetails";
+import Students from "./Components/Students/Students";
 
 function App() {
   return (
@@ -88,7 +91,30 @@ function App() {
             </UserLayout>
           }
         ></Route>
-
+        <Route
+          path="/faculty"
+          element={
+            <UserLayout>
+              <AllTeachers />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/facultydetails/:name"
+          element={
+            <UserLayout>
+              <TeacherDetails />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/students"
+          element={
+            <UserLayout>
+              <Students />
+            </UserLayout>
+          }
+        ></Route>
         <Route path="/admin/login" element={<AdminLogin />}></Route>
         <Route path="/admin/dashboard" element={<AdminPanel />}></Route>
         <Route path="/admin/register" element={<AdminRegistration />}></Route>

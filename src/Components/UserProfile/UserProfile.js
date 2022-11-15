@@ -6,6 +6,7 @@ import RegistrationFormView from "../RegistrationForm/RegistrationFormView";
 import styles from "./UserProfile.css";
 import EditProfile from "./EditProfile";
 import Result from "./Result";
+import Suggestion from "./Suggestion/Suggestion";
 
 export default function () {
   const [page, setPage] = useState();
@@ -45,6 +46,7 @@ export default function () {
 
                 {page == "editProfile" && <EditProfile />}
                 {page == "Result" && <Result />}
+                {page == "Suggestion" && <Suggestion />}
               </>
             ) : (
               <div className="pt-2 px-5 mx-auto   mb-4  max-w-screen-xl	">
@@ -92,11 +94,84 @@ export default function () {
                         <td className="">01</td>
                       </tr>
                       <tr>
+                        <td className="bg-slate-100 border">CGPA</td>
+                        <td className="">3.50</td>
+                      </tr>
+                      <tr>
                         <td className="bg-slate-100 border">Contact No:</td>
                         <td className="">01</td>
                       </tr>
+                      <tr>
+                        <td className="bg-slate-100 border">Address:</td>
+                        <td className="">Noakhali, Bangladesh.</td>
+                      </tr>
+                      <tr>
+                        <td className="bg-slate-100 border">Birthday:</td>
+                        <td className="">01-01-2020</td>
+                      </tr>
                     </tbody>
                   </table>
+
+                  <div className="my-5 flex gap-6 mt-8">
+                    <div className="flex-1">
+                      <h2 className="text-2xl">SSC Details</h2>
+                      <table className="border mt-5">
+                        <tbody>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">Board</td>
+                            <td className="">Chittagong</td>
+                          </tr>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">Year</td>
+                            <td className="">2020</td>
+                          </tr>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">Roll No</td>
+                            <td className="">104070</td>
+                          </tr>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">
+                              Registration No
+                            </td>
+                            <td className="">15145656565</td>
+                          </tr>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">Board</td>
+                            <td className="">4.99</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl">HSC Details</h2>
+                      <table className="border mt-5">
+                        <tbody>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">Board</td>
+                            <td className="">Chittagong</td>
+                          </tr>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">Year</td>
+                            <td className="">2020</td>
+                          </tr>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">Roll No</td>
+                            <td className="">104070</td>
+                          </tr>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">
+                              Registration No
+                            </td>
+                            <td className="">15145656565</td>
+                          </tr>
+                          <tr className="border ">
+                            <td className="bg-slate-100 border">Board</td>
+                            <td className="">4.99</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -117,6 +192,9 @@ export default function () {
 
             <li>
               <button onClick={() => setPage("Result")}>Result</button>
+            </li>
+            <li>
+              <button onClick={() => setPage("Suggestion")}>Suggestion</button>
             </li>
           </ul>
         </div>

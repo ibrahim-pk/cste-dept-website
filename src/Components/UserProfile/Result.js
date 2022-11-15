@@ -39,7 +39,7 @@ export default function Result() {
     <div className="pt-2 px-5 max-w-screen-lg mx-auto w-full mb-4">
       <h2 className="text-2xl">Result</h2>
 
-      <h4 className="text-xl my-2">
+      <h4 className="text-2xl text-center font-bold my-2 mt-8">
         CGPA : <span className="text-blue-900 font-semibold">3.25</span>
       </h4>
 
