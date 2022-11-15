@@ -3,6 +3,11 @@ tr td:nth-child(odd) {
     white-space: nowrap;
 }
 #drawer-user{
-    height:auto;
+    height: auto;
+    min-height:100vh;
     overflow-y: hidden;
+}
+
+#drawer-user .drawer-toggle ~ .drawer-side {
+    max-height: fit-content;
 }

@@ -5,7 +5,7 @@ import style from "./Footer.module.css";
 export default function Footer() {
   return (
     <>
-      <div className="w-full border-t mt-12 pt-12 px-2">
+      <div className="w-full border-t pt-12 px-2">
         <div className="max-w-screen-lg flex flex-col md:flex-row gap-4 mx-auto items-center justify-between">
           <div className="w-full">
             <h2 className="font-semibold mb-2">Quick Links</h2>
