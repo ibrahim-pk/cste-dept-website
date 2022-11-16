@@ -68,7 +68,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-center text-xs my-4">
-        <p>Copyright &copy; {new Date().getFullYear()} CSTE, NSTU</p>
+        <p>
+          Copyright &copy; {new Date().getFullYear()} CSTE, NSTU | All Rights
+          Reserved
+        </p>
       </div>
     </>
   );
