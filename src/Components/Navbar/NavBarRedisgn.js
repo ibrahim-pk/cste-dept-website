@@ -5,52 +5,13 @@ import logo from "./../../img/logo.png";
 export default function NavBarRedisgn() {
   return (
     <div>
-      <div className="flex justify-between border-b px-4 py-2 items-center">
-        <div className="flex justify-between">
-          <div>
-            <span>+7701234567</span>
-            <a href="#" className="block">
-              Noakhali-3814, Bangladesh
-            </a>
-          </div>
-          <div>
-            <a href="#"></a>
-          </div>
-        </div>
-        <div>
-          <div className="dropdown dropdown-bottom dropdown-end">
-            <label tabIndex={0} className=" m-1 cursor-pointer">
-              <div className="avatar">
-                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src="https://placeimg.com/192/192/people" />
-                </div>
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <div className="p-2">
-                <strong>Borhan</strong>
-                <p>ASH2101008M</p>
-              </div>
-              <li>
-                <Link to="/myprofile">Dashboard</Link>
-              </li>
-            </ul>
-          </div>
-          <Link to="/login" className="btn btn-xs btn-ghost">
-            Login
-          </Link>
-        </div>
-      </div>
-      {/* logo */}
+      {/* header for large screen */}
       <div className="hidden lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 py-4 px-2">
         <div>
           <img src={logo} alt="NSTU LOGO" className="w-16" />
         </div>
         <div>
-          <h3 className="text-xl lg:text-2xl">
+          <h3 className="text-xl lg:text-2xl" style={{ letterSpacing: "4px" }}>
             Noakhali Science & Technology Univeristy
           </h3>
           <h2 className="text-xl lg:text-2xl font-semibold">
@@ -98,7 +59,12 @@ export default function NavBarRedisgn() {
                 <Link to="/coursematerials">Materials</Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link
+                  to="/login"
+                  className="btn btn-xs btn bg-blue-900 hover:hover:bg-blue-800 text-white p-0"
+                >
+                  Login
+                </Link>
               </li>
               <li tabIndex={0}>
                 <a className="justify-between">
@@ -125,16 +91,27 @@ export default function NavBarRedisgn() {
                   </li>
                 </ul>
               </li>
+              <li>
+                <Link to="/myprofile">Dashboard</Link>
+              </li>
+              <li>
+                <button className="btn bg-blue-900 hover:hover:bg-blue-800 text-white">
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
           <Link
             to="/"
-            className="normal-case  text-3xl xl:text-xl flex items-center "
+            className="normal-case  text-3xl xl:text-xl flex items-center  w-full ml-4"
           >
             <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
 
-            <span className="font-semibold block text-xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+            <span className="hidden md:block font-semibold block text-xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
               Computer Science & Telecommunication Engineering
+            </span>
+            <span className="block md:hidden font-semibold block text-3xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+              CSTE
             </span>
           </Link>
         </div>
@@ -186,6 +163,41 @@ export default function NavBarRedisgn() {
               </ul>
             </li>
           </ul>
+        </div>
+        {/* Dropdown for if user logged in [for lg screen only]  */}
+        <div className="hidden lg:block">
+          <div className="dropdown dropdown-bottom dropdown-end ">
+            <label tabIndex={0} className=" m-1 cursor-pointer">
+              <div className="avatar">
+                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src="https://placeimg.com/192/192/people" />
+                </div>
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <div className="p-2">
+                <strong>Borhan</strong>
+                <p>ASH2101008M</p>
+              </div>
+              <li>
+                <Link to="/myprofile">Dashboard</Link>
+              </li>
+              <li>
+                <button className="btn bg-blue-900 hover:hover:bg-blue-800 text-white">
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+          <Link
+            to="/login"
+            className="btn btn-xs btn bg-blue-900 hover:hover:bg-blue-800 text-white"
+          >
+            Login
+          </Link>
         </div>
       </div>
     </div>

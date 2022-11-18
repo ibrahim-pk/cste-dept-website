@@ -23,6 +23,7 @@ export default function ViewStudent() {
               <th>Roll</th>
               <th>Password</th>
               <th>Email</th>
+              <th>Role</th>
               <th className="w-16"></th>
               <th className="w-16"></th>
             </tr>
@@ -48,6 +49,7 @@ export default function ViewStudent() {
               <td>Quality Control Specialist</td>
               <td>Blue</td>
               <td>Blue</td>
+              <td>General</td>
               <td>
                 <button className="btn btn-ghost btn-xs">Edit</button>
               </td>
@@ -75,6 +77,7 @@ export default function ViewStudent() {
               <td>Quality Control Specialist</td>
               <td>Blue</td>
               <td>Blue</td>
+              <td>CR</td>
               <td>
                 <button className="btn btn-ghost btn-xs">Edit</button>
               </td>

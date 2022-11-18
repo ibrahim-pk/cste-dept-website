@@ -23,12 +23,11 @@ export default function AdminPanel() {
         <div className="border-l flex-1 w-full overflow-y-scroll max-h-screen">
           <div className="border-b px-2 py-2 flex items-center justify-between w-full ">
             <div>
-              <h3 className="font-semibold">
-                Welcome, <span className="text-blue-800">Borhan</span>
-              </h3>
               <h2 className="text-2xl font-semibold">Admin Panel</h2>
             </div>
-            <button className="btn btn-ghost">Log out</button>
+            <button className="btn bg-blue-900 hover:hover:bg-blue-800 text-white">
+              Log out
+            </button>
           </div>
           <div className="p-5 mb-10">
             {page === "addStudent" && <AddStudent />}
