@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import style from "./MessageFromChairman.module.css";
-export default function MessageFromChairman() {
+export default function MessageFromChairmanDetails() {
   return (
     <div
       className={`pt-10 lg:pt-32 ${style.msg_chairman_main} max-w-screen-xl  mx-auto my-8 md:my-0  px-4`}
@@ -32,14 +31,24 @@ export default function MessageFromChairman() {
                 perspiciatis cumque blanditiis tempora obcaecati repudiandae
                 alias necessitatibus in ipsam ex?
               </p>
-              <div className="card-actions justify-end my-2">
-                <Link
-                  to="/chairmanmessage"
-                  className="btn btn-outline float-right   hover:bg-blue-900 btn-sm"
-                >
-                  Read More
-                </Link>
-              </div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Blanditiis labore fugit excepturi. Praesentium porro voluptate
+                temporibus soluta vitae totam voluptas, doloremque aperiam
+                dolore dolores tenetur laudantium exercitationem nisi placeat
+                ducimus. Sed nesciunt nam, reiciendis illum voluptates hic
+                necessitatibus quos sequi harum repellat omnis libero odit
+                iusto? Aliquam ex repudiandae odio sequi. Vero enim, animi sunt
+                magni deserunt ipsam temporibus soluta quos nostrum eveniet
+                amet, architecto veritatis ipsa aut corporis! Dicta non,
+                cupiditate explicabo numquam impedit rerum nam, vel animi ad
+                incidunt earum facilis. Quasi quis, pariatur atque sequi optio
+                illum voluptatem eligendi. Ullam quod deleniti saepe aliquam
+                accusantium expedita officia sed. Molestias quae repellendus
+                maiores corporis cupiditate, est possimus tempora, dignissimos
+                iusto modi blanditiis aperiam, dicta quos. Voluptate, eius
+                consequatur.
+              </p>
             </div>
           </div>
         </div>

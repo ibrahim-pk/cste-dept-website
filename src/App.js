@@ -24,6 +24,7 @@ import SingleNews from "./Components/News/SingleNews";
 import Researches from "./Components/Researches/Researches";
 import SingleResearches from "./Components/Researches/SingleResearches";
 import CSTEClub from "./Components/CSTEClub/CSTEClub";
+import MessageFromChairmanDetails from "./Components/Home/MessageFromChairman/MeessagrFromChairmanDetails";
 
 function App() {
   return (
@@ -166,6 +167,14 @@ function App() {
           element={
             <UserLayout>
               <CSTEClub />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/chairmanmessage"
+          element={
+            <UserLayout>
+              <MessageFromChairmanDetails />
             </UserLayout>
           }
         ></Route>

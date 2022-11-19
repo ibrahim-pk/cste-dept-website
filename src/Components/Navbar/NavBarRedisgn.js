@@ -6,22 +6,22 @@ export default function NavBarRedisgn() {
   return (
     <div>
       {/* header for large screen */}
-      <div className="hidden lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 py-4 px-2">
+      <div className="hidden lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 px-2">
         <Link
           to="/"
           className="lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 py-4 px-2"
         >
           <div>
-            <img src={logo} alt="NSTU LOGO" className="w-16" />
+            <img src={logo} alt="NSTU LOGO" className="w-12" />
           </div>
           <div>
             <h3
-              className="text-xl lg:text-2xl"
-              style={{ letterSpacing: "4px" }}
+              className="text-xl lg:text-xl"
+              style={{ letterSpacing: "3.5px" }}
             >
               Noakhali Science & Technology Univeristy
             </h3>
-            <h2 className="text-xl lg:text-2xl font-semibold">
+            <h2 className="text-xl lg:text-xl font-semibold">
               Computer Science and Telecommunication Engineering
             </h2>
           </div>
@@ -87,6 +87,7 @@ export default function NavBarRedisgn() {
                   Login
                 </Link>
               </li>
+
               <li tabIndex={0}>
                 <a className="justify-between">
                   More
@@ -100,15 +101,18 @@ export default function NavBarRedisgn() {
                     <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                   </svg>
                 </a>
-                <ul
-                  className="p-2 bg-base-100 min-w-xs"
-                  style={{ zIndex: "99999999" }}
-                >
+                <ul className="p-2 bg-base-100 min-w-xs submenu-left">
                   <li>
                     <Link to="/faculty">Faculty</Link>
                   </li>
                   <li>
                     <Link to="/students">Student</Link>
+                  </li>
+                  <li>
+                    <Link to="/news">News</Link>
+                  </li>
+                  <li>
+                    <Link to="/csteclub">CSTE Club</Link>
                   </li>
                 </ul>
               </li>

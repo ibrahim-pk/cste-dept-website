@@ -1,6 +1,6 @@
 .sliderImage{
-    max-height: 70vh;
-    min-height: 70vh;
+    max-height: 65vh;
+    min-height: 65vh;
 }
 
 .thumbs-wrapper.axis-vertical {
@@ -12,6 +12,10 @@
 }
 .stat-title{
     font-size: 25px;
+}
+.submenu-left{
+    right: 100%;
+    left: auto;
 }
 @media only screen and (max-width:662px){
     .sliderImage{

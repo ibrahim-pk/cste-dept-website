@@ -48,7 +48,7 @@ export default function NoticeHome() {
                 15 Nov 2022
               </h4>
               <p>If a dog chews shoes whose shoes does he choose?</p>
-              <p className="mt-2">
+              <p className="mt-2 hidden md:block">
                 <Link to="" className="btn btn-xs btn-outline mr-2">
                   Programming
                 </Link>
