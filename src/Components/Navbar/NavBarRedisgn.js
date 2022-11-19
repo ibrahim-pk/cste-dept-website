@@ -109,19 +109,18 @@ export default function NavBarRedisgn() {
               </li>
             </ul>
           </div>
-          <Link
-            to="/"
-            className="normal-case  text-3xl xl:text-xl flex items-center  w-full ml-4"
-          >
-            <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
+          <div className="mx-auto text-3xl xl:text-xl justify-center flex flex-1 items-center text-center w-full ">
+            <Link to="/" className="normal-case flex items-center">
+              <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
 
-            <span className="hidden md:block font-semibold block text-xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
-              Computer Science & Telecommunication Engineering
-            </span>
-            <span className="block md:hidden font-semibold block text-3xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
-              CSTE
-            </span>
-          </Link>
+              <span className="hidden md:block font-semibold block text-xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+                Computer Science & Telecommunication Engineering
+              </span>
+              <span className="block md:hidden font-semibold block text-3xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+                CSTE
+              </span>
+            </Link>
+          </div>
         </div>
         <div className="w-full navbar-center hidden lg:flex flex-1">
           <ul className="menu mx-auto  menu-horizontal p-0 hover:bg-black-400 text-center">

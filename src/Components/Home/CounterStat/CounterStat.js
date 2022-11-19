@@ -17,7 +17,7 @@ export default function CounterStat() {
           </div>
           <div className="stat-title font-bold text-black">Teachers</div>
           <div className="stat-value">
-            <CountUp start={0} end={18} duration={2.5} />
+            <CountUp start={0} end={18} duration={2} />
           </div>
         </div>
 
@@ -43,7 +43,7 @@ export default function CounterStat() {
           </div>
           <div className="stat-title font-bold text-black">Staffs</div>
           <div className="stat-value">
-            <CountUp start={1} end={10} duration={3} />
+            <CountUp start={1} end={10} duration={2} />
           </div>
         </div>
       </div>
