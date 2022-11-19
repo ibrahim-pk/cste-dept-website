@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import logo from "../../img/logo.png";
 import AddStudent from "./AddStudent";
 import AddTeacher from "./AddTeacher";
+import AddAndViewChairmanMSG from "./ChairmanMessage/AddAndViewChairmanMSG";
+import AddNews from "./News/AddNews";
+import ViewNews from "./News/ViewNews";
+import AddNotice from "./Notice/AddNotice";
+import ViewNotice from "./Notice/ViewNotice";
 import RegistrationViews from "./RegistrationViews";
+import AddResearch from "./Researches/AddResearch";
+import ViewResearches from "./Researches/ViewResearches";
 import ViewStudent from "./ViewStudent";
 import ViewTeacher from "./ViewTeacher";
 
@@ -37,6 +44,13 @@ export default function AdminPanel() {
             )}
             {page === "viewTeacher" && <ViewTeacher />}
             {page === "addTeacher" && <AddTeacher />}
+            {page === "addNotice" && <AddNotice />}
+            {page === "viewNotice" && <ViewNotice />}
+            {page === "addNews" && <AddNews />}
+            {page === "viewNews" && <ViewNews />}
+            {page === "addResearch" && <AddResearch />}
+            {page === "viewResearches" && <ViewResearches />}
+            {page === "AddAndViewChairmanMSG" && <AddAndViewChairmanMSG />}
           </div>
         </div>
       </div>
@@ -68,6 +82,53 @@ export default function AdminPanel() {
               </li>
               <li>
                 <button onClick={() => setPage("viewTeacher")}>View</button>
+              </li>
+            </ul>
+          </div>
+          <div tabIndex="0" className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title font-medium">Notice</div>
+            <ul className="collapse-content menu">
+              <li>
+                <button onClick={() => setPage("addNotice")}>Add</button>
+              </li>
+              <li>
+                <button onClick={() => setPage("viewNotice")}>View</button>
+              </li>
+            </ul>
+          </div>
+          <div tabIndex="0" className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title font-medium">News</div>
+            <ul className="collapse-content menu">
+              <li>
+                <button onClick={() => setPage("addNews")}>Add</button>
+              </li>
+              <li>
+                <button onClick={() => setPage("viewNews")}>View</button>
+              </li>
+            </ul>
+          </div>
+          <div tabIndex="0" className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title font-medium">Research</div>
+            <ul className="collapse-content menu">
+              <li>
+                <button onClick={() => setPage("addResearch")}>Add</button>
+              </li>
+              <li>
+                <button onClick={() => setPage("viewResearches")}>View</button>
+              </li>
+            </ul>
+          </div>
+          <div tabIndex="0" className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title font-medium">More</div>
+            <ul className="collapse-content menu">
+              <li>
+                <button onClick={() => setPage("AddAndViewChairmanMSG")}>
+                  Chairman Message
+                </button>
               </li>
             </ul>
           </div>
