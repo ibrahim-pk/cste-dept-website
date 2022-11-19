@@ -32,7 +32,19 @@ export default function NavBarRedisgn() {
         */}
       <div className="navbar bg-base-100 border-b border-t lg:justify-center">
         <div className="navbar-start flex justify-between lg:hidden w-full">
-          <div className="dropdown">
+          <div className="mx-auto text-3xl xl:text-xl  flex flex-1 items-center text-center w-full ">
+            <Link to="/" className="normal-case flex items-center">
+              <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
+
+              <span className="hidden md:block font-semibold block text-xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+                Computer Science & Telecommunication Engineering
+              </span>
+              <span className="block md:hidden font-semibold block text-3xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
+                CSTE
+              </span>
+            </Link>
+          </div>
+          <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +64,7 @@ export default function NavBarRedisgn() {
             <ul
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              style={{ zIndex: "99999" }}
             >
               <li>
                 <a>Home</a>
@@ -108,18 +121,6 @@ export default function NavBarRedisgn() {
                 </button>
               </li>
             </ul>
-          </div>
-          <div className="mx-auto text-3xl xl:text-xl justify-center flex flex-1 items-center text-center w-full ">
-            <Link to="/" className="normal-case flex items-center">
-              <img src={logo} className="w-16 pr-4" alt="NSTU Logo" />
-
-              <span className="hidden md:block font-semibold block text-xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
-                Computer Science & Telecommunication Engineering
-              </span>
-              <span className="block md:hidden font-semibold block text-3xl text-transparent bg-clip-text bg-gradient-to-r to-blue-900 from-blue-800">
-                CSTE
-              </span>
-            </Link>
           </div>
         </div>
         <div className="w-full navbar-center hidden lg:flex flex-1">
