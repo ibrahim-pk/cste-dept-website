@@ -7,17 +7,25 @@ export default function NavBarRedisgn() {
     <div>
       {/* header for large screen */}
       <div className="hidden lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 py-4 px-2">
-        <div>
-          <img src={logo} alt="NSTU LOGO" className="w-16" />
-        </div>
-        <div>
-          <h3 className="text-xl lg:text-2xl" style={{ letterSpacing: "4px" }}>
-            Noakhali Science & Technology Univeristy
-          </h3>
-          <h2 className="text-xl lg:text-2xl font-semibold">
-            Computer Science and Telecommunication Engineering
-          </h2>
-        </div>
+        <Link
+          to="/"
+          className="lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 py-4 px-2"
+        >
+          <div>
+            <img src={logo} alt="NSTU LOGO" className="w-16" />
+          </div>
+          <div>
+            <h3
+              className="text-xl lg:text-2xl"
+              style={{ letterSpacing: "4px" }}
+            >
+              Noakhali Science & Technology Univeristy
+            </h3>
+            <h2 className="text-xl lg:text-2xl font-semibold">
+              Computer Science and Telecommunication Engineering
+            </h2>
+          </div>
+        </Link>
       </div>
       {/*
         NAVBAR
@@ -136,6 +144,9 @@ export default function NavBarRedisgn() {
             <li>
               <Link to="/admin/dashboard">Admin</Link>
             </li>
+            <li>
+              <Link to="/notices">Notices</Link>
+            </li>
 
             <li tabIndex={0}>
               <a className="justify-between">
@@ -159,6 +170,12 @@ export default function NavBarRedisgn() {
                 </li>
                 <li>
                   <Link to="/students">Student</Link>
+                </li>
+                <li>
+                  <Link to="/news">News</Link>
+                </li>
+                <li>
+                  <Link to="/csteclub">CSTE Club</Link>
                 </li>
               </ul>
             </li>

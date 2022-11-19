@@ -1,0 +1,27 @@
+.sliderImage{
+    max-height: 70vh;
+    min-height: 70vh;
+}
+
+.thumbs-wrapper.axis-vertical {
+    display: none;
+}
+
+.zIndexInc{
+    z-index: 99999999999999;
+}
+.stat-title{
+    font-size: 25px;
+}
+@media only screen and (max-width:662px){
+    .sliderImage{
+        max-height: 50vh;
+        min-height: 50vh;
+    }
+    .stat-value{
+        font-size: 20px;
+    }
+    .stat-title{
+        font-size: 15px;
+    }
+}

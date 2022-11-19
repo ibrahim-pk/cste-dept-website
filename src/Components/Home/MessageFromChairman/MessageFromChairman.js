@@ -2,39 +2,36 @@ import React from "react";
 import style from "./MessageFromChairman.module.css";
 export default function MessageFromChairman() {
   return (
-    <div className={`pt-10 lg:pt-32 ${style.msg_chairman_main}`}>
-      <div
-        className={` px-5 gap-4 flex-col md:flex-row max-w-screen-xl mx-auto w-full flex }`}
-      >
-        <div className={style.msg_chairman_text}>
-          <h2 className="text-xl lg:text-2xl font-semibold mb-4">
-            Message from Chairman
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
-            deserunt vitae perspiciatis ratione quisquam, sunt porro eum
-            cupiditate ex illo numquam doloribus debitis accusantium ab
-            praesentium autem dolorum sit alias facilis illum quia voluptatum
-            enim? Quae repellendus, aspernatur placeat nostrum fuga praesentium
-            obcaecati nisi tempora totam qui fugiat rem vitae?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
-            atque quis assumenda soluta reprehenderit, sit molestias nihil
-            placeat cumque voluptas, iste earum maxime unde aspernatur accusamus
-            impedit. Non alias porro, tempora voluptate fuga earum illo culpa
-            quaerat ipsa voluptatem. Deleniti vitae, natus voluptatibus
-            molestiae eum tempore sapiente quod ex deserunt.
-          </p>
-        </div>
-        <div className="w-full mx-auto text-center">
-          <img
-            src="https://static.just.edu.bd/public/ca_1567062004043_genesys.jpg"
-            alt="Chairman Sir"
-            className="shadow-lg p-2 w-full max-w-xs border"
-          />
-          <h2 className="font-semibold text-xl mt-2">Dr. Ashadun Nobi</h2>
-          <p>Chairman & Professor</p>
+    <div
+      className={`pt-10 lg:pt-32 ${style.msg_chairman_main} max-w-screen-xl  mx-auto my-8 md:my-0  px-4`}
+    >
+      <div className="card w-full  bg-base-100 shadow-xl p-4 border">
+        <div className="card-body ">
+          <div className="block md:flex  flex-1 gap-8">
+            <div className="w-full max-w-xs">
+              <img
+                src="https://static.just.edu.bd/public/ca_1567062004043_genesys.jpg"
+                alt="Chairman Sir"
+                className="shadow-lg w-full img-fluid mt-[-80px] border p-2"
+              />
+            </div>
+            <div className="flex-1 w-full">
+              <h2 className="card-title my-4 md:my-0">Messaeg From Chairman</h2>
+              <p className="mt-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
+                cum voluptate mollitia porro officia odio doloremque ducimus
+                doloribus eaque? Distinctio non quisquam porro accusantium
+                exercitationem, voluptatum rerum, praesentium ipsa qui
+                perspiciatis cumque blanditiis tempora obcaecati repudiandae
+                alias necessitatibus in ipsam ex?
+              </p>
+              <div className="card-actions justify-end my-2">
+                <button className="btn btn-outline float-right   hover:bg-blue-900 btn-sm">
+                  Read More
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

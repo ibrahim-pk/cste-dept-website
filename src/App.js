@@ -18,6 +18,12 @@ import Home from "./Components/Home/Home";
 import AllTeachers from "./Components/Teachers/AllTeachers";
 import TeacherDetails from "./Components/Teachers/TeacherDetails";
 import Students from "./Components/Students/Students";
+import Notices from "./Components/Notices/Notices";
+import News from "./Components/News/News";
+import SingleNews from "./Components/News/SingleNews";
+import Researches from "./Components/Researches/Researches";
+import SingleResearches from "./Components/Researches/SingleResearches";
+import CSTEClub from "./Components/CSTEClub/CSTEClub";
 
 function App() {
   return (
@@ -112,6 +118,54 @@ function App() {
           element={
             <UserLayout>
               <Students />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/notices"
+          element={
+            <UserLayout>
+              <Notices />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/news"
+          element={
+            <UserLayout>
+              <News />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/newsview/"
+          element={
+            <UserLayout>
+              <SingleNews />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/researches/"
+          element={
+            <UserLayout>
+              <Researches />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/researchview/"
+          element={
+            <UserLayout>
+              <SingleResearches />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/csteclub/"
+          element={
+            <UserLayout>
+              <CSTEClub />
             </UserLayout>
           }
         ></Route>
