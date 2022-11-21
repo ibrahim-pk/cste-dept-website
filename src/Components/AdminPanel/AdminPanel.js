@@ -10,6 +10,8 @@ import ViewNotice from "./Notice/ViewNotice";
 import RegistrationViews from "./RegistrationViews";
 import AddResearch from "./Researches/AddResearch";
 import ViewResearches from "./Researches/ViewResearches";
+import AddResult from "./Result/AddResult";
+import ViewResult from "./Result/ViewResult";
 import ViewStudent from "./ViewStudent";
 import ViewTeacher from "./ViewTeacher";
 
@@ -51,6 +53,8 @@ export default function AdminPanel() {
             {page === "addResearch" && <AddResearch />}
             {page === "viewResearches" && <ViewResearches />}
             {page === "AddAndViewChairmanMSG" && <AddAndViewChairmanMSG />}
+            {page === "addResult" && <AddResult />}
+            {page === "ViewResult" && <ViewResult />}
           </div>
         </div>
       </div>
@@ -118,6 +122,18 @@ export default function AdminPanel() {
               </li>
               <li>
                 <button onClick={() => setPage("viewResearches")}>View</button>
+              </li>
+            </ul>
+          </div>
+          <div tabIndex="0" className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title font-medium">Result</div>
+            <ul className="collapse-content menu">
+              <li>
+                <button onClick={() => setPage("addResult")}>Add Result</button>
+                <button onClick={() => setPage("ViewResult")}>
+                  View Results
+                </button>
               </li>
             </ul>
           </div>
