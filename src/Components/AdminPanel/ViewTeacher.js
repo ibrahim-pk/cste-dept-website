@@ -1,8 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputField from "../Common/InputField";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ViewTeacher() {
   const [search, setSearch] = useState("");
+  const [allTeacher, setAllTeacher] = useState("");
+  const deleteTeacher = (id) => {
+    fetch(`http://localhost:5000/api/teacher/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          toast(data.error);
+          return;
+        } else {
+          toast(data.msg);
+        }
+      });
+  };
+  useEffect(() => {
+    fetch("http://localhost:5000/api/teacher/add")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          toast(data.error);
+          return;
+        } else {
+          setAllTeacher(data);
+        }
+      });
+    // handle14Batch();
+  }, [deleteTeacher]);
   return (
     <div className="w-full">
       <h2 className="text-2xl mb-2 border-b pb-2">Teachers (500)</h2>
@@ -20,402 +52,56 @@ export default function ViewTeacher() {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Study</th>
-              <th>Research Interest</th>
-              <th>About</th>
               <th>Email</th>
-              <th></th>
-              <th></th>
+              <th>Mobile</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
+            {allTeacher.length === 0 ? (
+              <h3>No Data</h3>
+            ) : allTeacher.length > 0 ? (
+              allTeacher.map((item, idx) => (
+                <tr key={idx}>
+                  <td>
+                    <div className="flex items-center space-x-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                          <img
+                            src="https://www.w3schools.com/howto/img_avatar.png"
+                            alt="Avatar Tailwind CSS Component"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{item.name}</div>
+                        <div className="text-sm opacity-50">
+                          {item.position}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
+                  </td>
+                  <td>{item.mobile}</td>
+                  <td>{item.email}</td>
 
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
-
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
-
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
-
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
-
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
-
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
-
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
-
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">Name</div>
-                    <div className="text-sm opacity-50">
-                      Assistant Professor
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                B.Sc, M.Sc, Ph.d
-                <br />
-              </td>
-              <td>
-                <span className="badge badge-ghost badge-sm">
-                  Data Structure
-                </span>
-                <span className="badge badge-ghost badge-sm">
-                  Cyber Security
-                </span>
-              </td>
-              <td>
-                <p>Mr. Lorem ipsum dolor sit amet ....</p>
-              </td>
-              <td>name@mail.com</td>
-
-              <th>
-                <button className="btn btn-ghost btn-xs">edit</button>
-              </th>
-              <th>
-                <button className="btn btn-ghost btn-xs">delete</button>
-              </th>
-            </tr>
+                  <th>
+                    <button className="btn btn-ghost btn-xs">edit</button>
+                  </th>
+                  <th>
+                    <button
+                      onClick={() => deleteTeacher(item._id)}
+                      className="btn btn-ghost btn-xs"
+                    >
+                      delete
+                    </button>
+                    <Toaster />
+                  </th>
+                </tr>
+              ))
+            ) : (
+              <h3>Loading.....</h3>
+            )}
           </tbody>
         </table>
       </div>

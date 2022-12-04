@@ -6,13 +6,15 @@ import MessageFromChairman from "./MessageFromChairman/MessageFromChairman";
 import NewsHome from "./News/News";
 import NoticeHome from "./Notice/NoticeHome";
 import ResearchHome from "./Research/Research";
-
+import { AnimationOnScroll } from "react-animation-on-scroll";
 export default function Home() {
   return (
     <>
       <CarouselHome />
+      <AnimationOnScroll animateIn="animate__bounceIn">
+        <MessageFromChairman />
+      </AnimationOnScroll>
 
-      <MessageFromChairman />
       <div className="flex flex-col md:flex-row gap-4 max-w-screen-xl p-4 mx-auto w-full my-20">
         <div className="w-full flex-1">
           <NewsHome />

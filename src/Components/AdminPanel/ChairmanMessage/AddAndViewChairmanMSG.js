@@ -1,13 +1,62 @@
 import React, { useState } from "react";
 import InputField from "../../Common/InputField";
 import SubmitBtn from "../../Common/SubmitBtn";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function AddAndViewChairmanMSG() {
-  const [name, setName] = useState("Dr. Ashadun Nobi");
-  const [details, setDetails] = useState("lorem ipsum ...");
-  const [role, setRole] = useState("Chairman & Professor");
-  const handleSubmit = (e) => {
+  const [imgUrl, setImageUrl] = useState("");
+  const [name, setName] = useState("");
+  const [details, setDetails] = useState("");
+  const [role, setRole] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleImageUpload = async (e) => {
+    setLoading(true);
+    const imageFile = e.target.files[0];
+    const data = new FormData();
+    data.append("file", imageFile);
+    //your folder name
+    data.append("upload_preset", "WinnerImg");
+    data.append("cloud_name", "ditdynru4");
+
+    try {
+      const result = await axios.post(
+        //aykhne [Your Cloudinary Cloud Name] baki link thik thak thakbe
+        "https://api.cloudinary.com/v1_1/ditdynru4/image/upload",
+        data
+      );
+      // console.log(result?.data?.url);
+      setImageUrl(result?.data?.url);
+      setLoading(false);
+    } catch (error) {
+      setError(error.massage);
+      setLoading(false);
+    }
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!imgUrl && !name && !details && !role) {
+      toast.error("Fillup the form properly");
+      return;
+    } else {
+      const { data } = await axios.post(
+        "http://localhost:5000/api/chairman/sms",
+        {
+          imgUrl,
+          name,
+          details,
+          role,
+        }
+      );
+      //console.log(data);
+      toast.success(data.msg);
+      setImageUrl("");
+      setName("");
+      setDetails("");
+      setRole("");
+    }
   };
   return (
     <div className="w-full">
@@ -41,13 +90,21 @@ export default function AddAndViewChairmanMSG() {
         <div className="my-2">
           <input
             type="file"
+            onChange={handleImageUpload}
             className="file-input file-input-bordered w-full max-w-xs"
           />
+          <div>
+            {loading && (
+              <h1 className="text-xl font-bold text-sky-700">Uploading....</h1>
+            )}
+          </div>
         </div>
         <div className="w-full text-right">
-          <SubmitBtn value="Add Message"></SubmitBtn>
+          <SubmitBtn disabled={loading} value="Add Message"></SubmitBtn>
         </div>
       </form>
+      <div>{error && <h4>{error}</h4>}</div>
+      <Toaster />
     </div>
   );
 }

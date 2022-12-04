@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputField from "../Common/InputField";
 import SubmitBtn from "../Common/SubmitBtn";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function AddStudent() {
   const [name, setName] = useState("");
@@ -9,8 +10,50 @@ export default function AddStudent() {
   const [roll, setRoll] = useState("");
   const [session, setSession] = useState("");
   const [contactNo, setContactNo] = useState("");
+  const [batch, setBatch] = useState("");
+  const [picture, setPicture] = useState("");
+  const [dept, setDept] = useState("");
+  const [blood, setBlood] = useState("");
+  const [address, setAddress] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+    fetch("http://localhost:5000/api/student/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        dept,
+        blood,
+        address,
+        password,
+        studentId: roll,
+        session,
+        contactNo,
+        batch,
+        picture,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          toast(data.error);
+          return;
+        } else {
+          toast(data.msg);
+          setName("");
+          setDept("");
+          setBlood("");
+          setAddress("");
+          setEmail("");
+          setPassword("");
+          setContactNo("");
+          setRoll("");
+          setSession("");
+        }
+      });
   };
   return (
     <div className="w-full">
@@ -46,9 +89,32 @@ export default function AddStudent() {
           ></InputField>
           <InputField
             type="text"
+            setField={setBatch}
+            fieldValue={batch}
+            label="Batch"
+            requiredField="true"
+          ></InputField>
+          <InputField
+            type="text"
             setField={setSession}
             fieldValue={session}
             label="Session"
+          ></InputField>
+        </div>
+        <div className="flex gap-4">
+          <InputField
+            type="text"
+            setField={setBlood}
+            fieldValue={blood}
+            label="Blood"
+            requiredField="true"
+          ></InputField>
+          <InputField
+            type="text"
+            setField={setDept}
+            fieldValue={dept}
+            label="Dept"
+            requiredField="true"
           ></InputField>
         </div>
         <InputField
@@ -57,8 +123,15 @@ export default function AddStudent() {
           fieldValue={contactNo}
           label="Contact No"
         ></InputField>
+        <InputField
+          type="text"
+          setField={setAddress}
+          fieldValue={address}
+          label="Address"
+        ></InputField>
         <div className="w-full text-right">
           <SubmitBtn value="Add Student"></SubmitBtn>
+          <Toaster />
         </div>
       </form>
     </div>

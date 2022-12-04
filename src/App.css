@@ -15,8 +15,8 @@
     border-radius: 0px;       /* roundness of the scroll thumb */
   }
 .sliderImage{
-    max-height: 65vh;
-    min-height: 65vh;
+    max-height: 75vh;
+    min-height: 75vh;
 }
 
 .thumbs-wrapper.axis-vertical {
@@ -33,10 +33,35 @@
     right: 100%;
     left: auto;
 }
+/* profileCard */
+.ProfileAvatar{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ProfileAvatar i{
+    font-size:100px;
+}
+.ProfileAvatar img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.cpImg img{
+    height: 100px;
+    width: 100px;
+}
+
+
+
 @media only screen and (max-width:662px){
     .sliderImage{
-        max-height: 50vh;
-        min-height: 50vh;
+        width: 100%;
+        max-height:auto;
+        min-height: auto;
     }
     .stat-value{
         font-size: 20px;

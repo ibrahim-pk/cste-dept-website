@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./../../img/logo.png";
-
 export default function NavBarRedisgn() {
+  const [userInfo, setUserInfo] = useState({});
+  const [reLoader, setReLoader] = useState(false);
+
+  const logOut = () => {
+    localStorage.removeItem("UserDetails");
+    setReLoader(!reLoader);
+  };
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("UserDetails"));
+    setUserInfo(user?.student);
+  }, [reLoader]);
   return (
     <div>
       {/* header for large screen */}
       <div className="hidden lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 px-2">
         <Link
           to="/"
-          className="lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 py-4 px-2"
+          className="lg:flex  items-center justify-center text-center lg:text-left flex-col md:flex-row gap-4 py-1 px-2"
         >
           <div>
             <img src={logo} alt="NSTU LOGO" className="w-12" />
@@ -61,6 +71,7 @@ export default function NavBarRedisgn() {
                 />
               </svg>
             </label>
+            {/* small device nav */}
             <ul
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
@@ -143,9 +154,6 @@ export default function NavBarRedisgn() {
               <Link to="/coursematerials">Materials</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
               <Link to="/admin/dashboard">Admin</Link>
             </li>
             <li>
@@ -187,38 +195,48 @@ export default function NavBarRedisgn() {
         </div>
         {/* Dropdown for if user logged in [for lg screen only]  */}
         <div className="hidden lg:block">
-          <div className="dropdown dropdown-bottom dropdown-end ">
-            <label tabIndex={0} className=" m-1 cursor-pointer">
-              <div className="avatar">
-                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src="https://placeimg.com/192/192/people" />
+          {userInfo ? (
+            <div className="dropdown dropdown-bottom dropdown-end ">
+              <label tabIndex={0} className=" m-1 cursor-pointer">
+                <div className="avatar">
+                  <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img src={userInfo.picture} />
+                  </div>
                 </div>
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <div className="p-2">
-                <strong>Borhan</strong>
-                <p>ASH2101008M</p>
-              </div>
-              <li>
-                <Link to="/myprofile">Dashboard</Link>
-              </li>
-              <li>
-                <button className="btn bg-blue-900 hover:hover:bg-blue-800 text-white">
-                  Logout
-                </button>
-              </li>
-            </ul>
-          </div>
-          <Link
-            to="/login"
-            className="btn btn-xs btn bg-blue-900 hover:hover:bg-blue-800 text-white"
-          >
-            Login
-          </Link>
+              </label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <div className="p-2">
+                  <strong>{userInfo?.name}</strong>
+                  <p>{userInfo?.studentId}</p>
+                </div>
+                <li>
+                  <Link className="btn my-2 text-white" to="/myprofile">
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={logOut}
+                    className="btn  bg-blue-900 hover:hover:bg-blue-800 text-white"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div>
+              <Link
+                to="/login"
+                className="btn   btn-xs btn bg-blue-900 hover:hover:bg-blue-800 text-white"
+              >
+                Login
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

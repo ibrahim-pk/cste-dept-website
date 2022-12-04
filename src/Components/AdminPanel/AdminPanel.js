@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../img/logo.png";
+import Programmer from "../CSTEClub/Programmer";
 import AddStudent from "./AddStudent";
 import AddTeacher from "./AddTeacher";
 import AddAndViewChairmanMSG from "./ChairmanMessage/AddAndViewChairmanMSG";
@@ -16,7 +17,7 @@ import ViewStudent from "./ViewStudent";
 import ViewTeacher from "./ViewTeacher";
 
 export default function AdminPanel() {
-  const [page, setPage] = useState("");
+  const [page, setPage] = useState("viewTeacher");
   const [year, serYear] = useState("");
   const [term, setTerm] = useState("");
   return (
@@ -55,6 +56,7 @@ export default function AdminPanel() {
             {page === "AddAndViewChairmanMSG" && <AddAndViewChairmanMSG />}
             {page === "addResult" && <AddResult />}
             {page === "ViewResult" && <ViewResult />}
+            {page === "programmer" && <Programmer />}
           </div>
         </div>
       </div>
@@ -134,6 +136,18 @@ export default function AdminPanel() {
                 <button onClick={() => setPage("ViewResult")}>
                   View Results
                 </button>
+              </li>
+            </ul>
+          </div>
+          <div tabIndex="0" className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title font-medium">Club</div>
+            <ul className="collapse-content menu">
+              <li>
+                <button onClick={() => setPage("programmer")}>
+                  Top Programmer
+                </button>
+                <button onClick={() => setPage("member")}>Member</button>
               </li>
             </ul>
           </div>

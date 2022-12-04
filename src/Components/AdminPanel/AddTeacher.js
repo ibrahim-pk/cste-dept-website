@@ -1,16 +1,48 @@
 import React, { useState } from "react";
 import InputField from "../Common/InputField";
 import SubmitBtn from "../Common/SubmitBtn";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function AddTeacher() {
   const [name, setName] = useState("");
+  const [position, setPosition] = useState("");
+  const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [study, setStudy] = useState("");
   const [about, setAbout] = useState("");
-  const [researchInterest, setResearchInterest] = useState("");
+  const [join, setJoin] = useState("");
+  const [picture, setPicture] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+    fetch("http://localhost:5000/api/teacher/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        mobile,
+        position,
+        about,
+        join,
+        picture,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          toast(data.error);
+          return;
+        } else {
+          toast(data.msg);
+          setName("");
+          setEmail("");
+          setMobile("");
+          setPosition("");
+          setJoin("");
+          setAbout("");
+        }
+      });
   };
   return (
     <div className="w-full">
@@ -24,29 +56,30 @@ export default function AddTeacher() {
           label="Name"
         ></InputField>
         <InputField
+          type="number"
+          setField={setMobile}
+          fieldValue={mobile}
+          label="Mobile"
+        ></InputField>
+        <InputField
           type="email"
           setField={setEmail}
           fieldValue={email}
           label="Email"
         ></InputField>
-        <InputField
-          type="text"
-          setField={setPassword}
-          fieldValue={password}
-          label="Password"
-        ></InputField>
+
         <div className="flex gap-4">
           <InputField
             type="text"
-            setField={setStudy}
-            fieldValue={study}
-            label="Study"
+            setField={setPosition}
+            fieldValue={position}
+            label="Position"
           ></InputField>
           <InputField
             type="text"
-            setField={setResearchInterest}
-            fieldValue={researchInterest}
-            label="Research Interest"
+            setField={setJoin}
+            fieldValue={join}
+            label="Join Date"
           ></InputField>
         </div>
         <div className="form-control">
@@ -60,14 +93,10 @@ export default function AddTeacher() {
             value={about}
           ></textarea>
         </div>
-        <div className="my-2">
-          <input
-            type="file"
-            className="file-input file-input-bordered w-full max-w-xs"
-          />
-        </div>
-        <div className="w-full text-right">
+
+        <div className="w-full my-2 text-right">
           <SubmitBtn value="Add Teacher"></SubmitBtn>
+          <Toaster />
         </div>
       </form>
     </div>
