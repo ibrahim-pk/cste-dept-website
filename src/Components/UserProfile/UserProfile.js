@@ -7,6 +7,7 @@ import Suggestion from "./Suggestion/Suggestion";
 import HSCForm from "./HscSscForm/HSCForm";
 import SSCForm from "./HscSscForm/SSCForm";
 import ProfileCard from "./ProfileCard";
+import Materials from "./Materials";
 
 export default function () {
   const [page, setPage] = useState();
@@ -15,6 +16,7 @@ export default function () {
     const user = JSON.parse(localStorage.getItem("UserDetails"));
     setLoginStudent(user?.student);
   }, []);
+  const id = loginStudent?.studentId;
   return (
     <div>
       <div className="drawer" id="drawer-user">
@@ -53,6 +55,7 @@ export default function () {
                 {page == "Suggestion" && <Suggestion />}
                 {page == "HSCForm" && <HSCForm />}
                 {page == "SSCForm" && <SSCForm />}
+                {page == "materials" && <Materials />}
               </>
             ) : (
               <div className="pt-2 px-5 mx-auto   mb-4  max-w-screen-xl	">
@@ -195,6 +198,13 @@ export default function () {
 
             <li>
               <button onClick={() => setPage("Result")}>Result</button>
+            </li>
+            <li>
+              {id && id[0] === "C" && (
+                <button onClick={() => setPage("materials")}>
+                  Add Materials
+                </button>
+              )}
             </li>
             <li>
               <button onClick={() => setPage("HSCForm")}>HSC Details</button>

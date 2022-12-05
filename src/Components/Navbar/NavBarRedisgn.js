@@ -13,6 +13,8 @@ export default function NavBarRedisgn() {
     const user = JSON.parse(localStorage.getItem("UserDetails"));
     setUserInfo(user?.student);
   }, [reLoader]);
+  const id = userInfo?.studentId;
+  //console.log(id && id[id?.length - 1]);
   return (
     <div>
       {/* header for large screen */}
@@ -150,9 +152,15 @@ export default function NavBarRedisgn() {
             <li>
               <Link to="/coverpagegenerator">Cover Page</Link>
             </li>
-            <li>
-              <Link to="/coursematerials">Materials</Link>
-            </li>
+            <div>
+              {id &&
+                (id[id?.length - 1] === "M" || id[id?.length - 1] === "F") && (
+                  <li>
+                    <Link to="/coursematerials">Materials</Link>
+                  </li>
+                )}
+            </div>
+
             <li>
               <Link to="/admin/dashboard">Admin</Link>
             </li>

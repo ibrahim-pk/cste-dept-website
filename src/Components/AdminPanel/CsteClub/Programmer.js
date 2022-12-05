@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import SubmitBtn from "../Common/SubmitBtn";
-import InputField from "../Common/InputField";
-
+import SubmitBtn from "../../Common/SubmitBtn";
+import InputField from "../../Common/InputField";
 import axios from "axios";
+
 const Programmer = () => {
   const [imgUrl, setImageUrl] = useState("");
   const [name, setName] = useState("");
-  const [rating, setRating] = useState("");
+  const [rating, setRating] = useState();
   const [handle, setHandle] = useState("");
   const [handleLink, setHandleLink] = useState("");
   const [dept, setDept] = useState("");
@@ -57,7 +57,7 @@ const Programmer = () => {
           dept,
         }
       );
-      console.log(data);
+      //console.log(data);
       toast.success(data.msg);
       setImageUrl("");
       setName("");
@@ -82,7 +82,7 @@ const Programmer = () => {
             label="Name"
           ></InputField>
           <InputField
-            type="text"
+            type="number"
             setField={setRating}
             fieldValue={rating}
             label="Rating"

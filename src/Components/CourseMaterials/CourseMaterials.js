@@ -1,121 +1,53 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 export default function CourseMaterials() {
+  const [courseMaterial, setCourseMaterial] = useState([]);
+  const [userInfo, setUserInfo] = useState({});
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get(
+        "http://localhost:5000/api/add/material"
+      );
+      setCourseMaterial(data.material);
+      const user = JSON.parse(localStorage.getItem("UserDetails"));
+      setUserInfo(user?.student);
+    };
+    fetchData();
+  }, []);
   return (
     <div className="mx-auto max-w-screen-xl	 w-full px-4 mt-16 mb-4">
       <h2 className="text-3xl mb-4 text-center">Course Materials</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mx-auto place-content-center">
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">1-1</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              consequuntur.
-            </p>
-            <div className="card-actions justify-end">
-              <a href="" className="btn btn-ghost">
-                Get Materials
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="card   bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">1-2</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              consequuntur.
-            </p>
-            <div className="card-actions justify-end">
-              <a href="" className="btn btn-ghost">
-                Get Materials
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="card   bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">2-1</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              consequuntur.
-            </p>
-            <div className="card-actions justify-end">
-              <a href="" className="btn btn-ghost">
-                Get Materials
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="card   bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">2-2</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              consequuntur.
-            </p>
-            <div className="card-actions justify-end">
-              <a href="" className="btn btn-ghost">
-                Get Materials
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="card   bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">3-1</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              consequuntur.
-            </p>
-            <div className="card-actions justify-end">
-              <a href="" className="btn btn-ghost">
-                Get Materials
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="card   bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">3-2</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              consequuntur.
-            </p>
-            <div className="card-actions justify-end">
-              <a href="" className="btn btn-ghost">
-                Get Materials
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="card   bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">4-1</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              consequuntur.
-            </p>
-            <div className="card-actions justify-end">
-              <a href="" className="btn btn-ghost">
-                Get Materials
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="card   bg-base-100 shadow-xl">
-          <div className="card-body">
-            <h2 className="card-title">4-2</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              consequuntur.
-            </p>
-            <div className="card-actions justify-end">
-              <a href="" className="btn btn-ghost">
-                Get Materials
-              </a>
-            </div>
-          </div>
+        <div>
+          {courseMaterial.length > 0 ? (
+            courseMaterial.map((item, idx) => (
+              <div key={idx} className="card shadow-lg p-4 text-center">
+                <h1 className="text-2xl font-semibold my-1">
+                  Batch:{item.batch}
+                </h1>
+                <h1 className="text-xl font-semibold my-1">
+                  Drive Link:{item.term}
+                </h1>
+                <h1 className="text-xl font-semibold my-1">
+                  Access Batch:{item.accesTerm}
+                </h1>
+                <div className="my-3">
+                  {item.accesTerm === userInfo.batch ? (
+                    <a href={item.driveLink}>
+                      <button className="btn btn-sm">Click Here</button>
+                    </a>
+                  ) : (
+                    <button disabled className="btn btn-sm">
+                      Need permission
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No Material</p>
+          )}
         </div>
       </div>
     </div>

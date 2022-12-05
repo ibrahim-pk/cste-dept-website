@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../img/logo.png";
-import Programmer from "../CSTEClub/Programmer";
+import Programmer from "./CsteClub/Programmer";
 import AddStudent from "./AddStudent";
 import AddTeacher from "./AddTeacher";
 import AddAndViewChairmanMSG from "./ChairmanMessage/AddAndViewChairmanMSG";
@@ -15,6 +15,8 @@ import AddResult from "./Result/AddResult";
 import ViewResult from "./Result/ViewResult";
 import ViewStudent from "./ViewStudent";
 import ViewTeacher from "./ViewTeacher";
+import Galary from "./CsteClub/Galary";
+import OtherExp from "./CsteClub/OtherExp";
 
 export default function AdminPanel() {
   const [page, setPage] = useState("viewTeacher");
@@ -57,6 +59,8 @@ export default function AdminPanel() {
             {page === "addResult" && <AddResult />}
             {page === "ViewResult" && <ViewResult />}
             {page === "programmer" && <Programmer />}
+            {page === "galary" && <Galary />}
+            {page === "otherExp" && <OtherExp />}
           </div>
         </div>
       </div>
@@ -147,7 +151,11 @@ export default function AdminPanel() {
                 <button onClick={() => setPage("programmer")}>
                   Top Programmer
                 </button>
+                <button onClick={() => setPage("otherExp")}>
+                  Other Exprience
+                </button>
                 <button onClick={() => setPage("member")}>Member</button>
+                <button onClick={() => setPage("galary")}>Galary</button>
               </li>
             </ul>
           </div>
