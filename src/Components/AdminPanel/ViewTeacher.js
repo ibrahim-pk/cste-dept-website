@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import InputField from "../Common/InputField";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function ViewTeacher() {
-  const [search, setSearch] = useState("");
   const [allTeacher, setAllTeacher] = useState("");
   const deleteTeacher = (id) => {
     fetch(`http://localhost:5000/api/teacher/delete/${id}`, {
@@ -27,7 +25,7 @@ export default function ViewTeacher() {
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
-          toast(data.error);
+          toast.error(data.error);
           return;
         } else {
           setAllTeacher(data);
@@ -38,15 +36,6 @@ export default function ViewTeacher() {
   return (
     <div className="w-full">
       <h2 className="text-2xl mb-2 border-b pb-2">Teachers (500)</h2>
-      <div className="w-full overflow-hidden my-2">
-        <InputField
-          type="text"
-          label="Search"
-          setField={setSearch}
-          fieldValue={search}
-          className="max-w-xs float-right input-lg"
-        ></InputField>
-      </div>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>
@@ -69,7 +58,11 @@ export default function ViewTeacher() {
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                           <img
-                            src="https://www.w3schools.com/howto/img_avatar.png"
+                            src={
+                              item.imgUrl
+                                ? item.imgUrl
+                                : "https://www.w3schools.com/howto/img_avatar.png"
+                            }
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>

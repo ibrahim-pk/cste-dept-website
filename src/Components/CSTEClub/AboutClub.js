@@ -3,7 +3,7 @@ import React from "react";
 const AboutClub = () => {
   return (
     <div>
-      <div className="m-full mx-auto my-8 px-4 max-w-screen-xl ">
+      <div className="m-full mx-auto my-10 px-4 max-w-screen-xl ">
         <div className="flex flex-col md:flex-row bg-base-100 shadow-xl border">
           <figure className="p-2 csteClubImg">
             <img

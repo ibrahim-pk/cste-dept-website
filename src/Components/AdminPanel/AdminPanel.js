@@ -17,6 +17,8 @@ import ViewStudent from "./ViewStudent";
 import ViewTeacher from "./ViewTeacher";
 import Galary from "./CsteClub/Galary";
 import OtherExp from "./CsteClub/OtherExp";
+import AddMember from "./CsteClub/AddMember";
+import JobAdmin from "./JobAdmin";
 
 export default function AdminPanel() {
   const [page, setPage] = useState("viewTeacher");
@@ -61,6 +63,8 @@ export default function AdminPanel() {
             {page === "programmer" && <Programmer />}
             {page === "galary" && <Galary />}
             {page === "otherExp" && <OtherExp />}
+            {page === "member" && <AddMember />}
+            {page === "job" && <JobAdmin />}
           </div>
         </div>
       </div>
@@ -167,6 +171,9 @@ export default function AdminPanel() {
                 <button onClick={() => setPage("AddAndViewChairmanMSG")}>
                   Chairman Message
                 </button>
+              </li>
+              <li>
+                <button onClick={() => setPage("job")}>Job Post</button>
               </li>
             </ul>
           </div>

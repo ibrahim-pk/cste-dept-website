@@ -7,9 +7,11 @@ import NewsHome from "./News/News";
 import NoticeHome from "./Notice/NoticeHome";
 import ResearchHome from "./Research/Research";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import JobPost from "./Job/JobPost";
+
 export default function Home() {
   return (
-    <>
+    <div>
       <CarouselHome />
       <AnimationOnScroll animateIn="animate__bounceIn">
         <MessageFromChairman />
@@ -25,6 +27,7 @@ export default function Home() {
       </div>
       <ResearchHome />
       <CSTEClubHome />
-    </>
+      <JobPost />
+    </div>
   );
 }

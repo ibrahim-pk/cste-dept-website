@@ -26,8 +26,14 @@ export default function CSTEClubHome() {
               </ul>
             </AnimationOnScroll>
           </div>
-          <AnimationOnScroll animateIn="animate__fadeInRightBig">
-            <img src={slider4} className="max-w-sm rounded-lg shadow-2xl" />
+          <AnimationOnScroll
+            className="csteClubImg"
+            animateIn="animate__fadeInRightBig"
+          >
+            <img
+              src="https://scontent.fdac24-4.fna.fbcdn.net/v/t39.30808-6/302437402_779773696757763_1874941255832335242_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeFL8T0PuJtU33XriUNk-ZmZ0OAafmGQGijQ4Bp-YZAaKF_7XfWLrgqynMn5G3VxX-6DogCqtWJWWqrOGpxqzUrA&_nc_ohc=-uy2KwGDakcAX8tEs5U&_nc_ht=scontent.fdac24-4.fna&oh=00_AfB_AK4T0M1EWmttBxL_D_gEe7V_nmnh2QZrnm3W-OGbMA&oe=6391692B"
+              className=" rounded-lg shadow-xl"
+            />
           </AnimationOnScroll>
         </div>
       </div>

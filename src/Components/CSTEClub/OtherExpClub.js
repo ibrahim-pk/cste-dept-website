@@ -21,7 +21,7 @@ const OtherExpClub = () => {
           {programmers.length > 0 &&
             programmers.map((item, idx) => (
               <div key={idx} className="shadow-xl border">
-                <div className="flex p-5 justify-evenly items-center">
+                <div className="flex p-5 justify-evenly progCard items-center">
                   <figure className="">
                     <div className="avatar">
                       <div className=" cpImg rounded-full">
