@@ -143,35 +143,12 @@ export default function NavBarRedisgn() {
         <div className="w-full navbar-center hidden lg:flex flex-1">
           <ul className="menu mx-auto  menu-horizontal p-0 hover:bg-black-400 text-center">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">HOME</Link>
             </li>
-            <li>
-              <Link to="/registrationform">Registration</Link>
-            </li>
-
-            <li>
-              <Link to="/coverpagegenerator">Cover Page</Link>
-            </li>
-            <div>
-              {id &&
-                (id[id?.length - 1] === "M" || id[id?.length - 1] === "F") && (
-                  <li>
-                    <Link to="/coursematerials">Materials</Link>
-                  </li>
-                )}
-            </div>
-
-            <li>
-              <Link to="/admin/dashboard">Admin</Link>
-            </li>
-            <li>
-              <Link to="/notices">Notices</Link>
-            </li>
-
             <li tabIndex={0}>
               <a className="justify-between">
-                More
-                <svg
+                ACADEMICS
+                {/* <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -179,10 +156,63 @@ export default function NavBarRedisgn() {
                   viewBox="0 0 24 24"
                 >
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
+                </svg> */}
               </a>
               <ul
-                className="p-2 bg-base-100 min-w-xs"
+                className="p-2 innerList bg-base-100 min-w-xs"
+                style={{ zIndex: "99999999" }}
+              >
+                <li>
+                  <Link to="/curriculums">CURRICULUMS</Link>
+                </li>
+                <li>
+                  <Link to="/syllabus">SYLLABUS</Link>
+                </li>
+                <li>
+                  <Link to="/online-course">ONLINE COURSE</Link>
+                </li>
+                <li>
+                  <Link to="/coverpagegenerator">COVER PAGE</Link>
+                </li>
+                <li>
+                  <Link to="/registrationform">REGISTRATION</Link>
+                </li>
+              </ul>
+            </li>
+
+            <div>
+              {id &&
+                (id[id?.length - 1] === "M" || id[id?.length - 1] === "F") && (
+                  <li>
+                    <Link to="/coursematerials">MATERIALS</Link>
+                  </li>
+                )}
+            </div>
+
+            <li>
+              <Link to="/admin/dashboard">ADMIN</Link>
+            </li>
+            <li>
+              <Link to="/notices">NOTICE</Link>
+            </li>
+            <li>
+              <Link to="/csteclub">CLUB</Link>
+            </li>
+            <li tabIndex={0}>
+              <a className="justify-between">
+                MORE
+                {/* <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg> */}
+              </a>
+              <ul
+                className="p-2 bg-base-100 innerList min-w-xs"
                 style={{ zIndex: "99999999" }}
               >
                 <li>
@@ -193,9 +223,6 @@ export default function NavBarRedisgn() {
                 </li>
                 <li>
                   <Link to="/news">News</Link>
-                </li>
-                <li>
-                  <Link to="/csteclub">CSTE Club</Link>
                 </li>
               </ul>
             </li>

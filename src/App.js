@@ -25,6 +25,8 @@ import Researches from "./Components/Researches/Researches";
 import SingleResearches from "./Components/Researches/SingleResearches";
 import CSTEClub from "./Components/CSTEClub/CSTEClub";
 import AllJobPost from "./Components/Home/Job/AllJobPost";
+import CurriculumTable from "./Components/Curriculum/CurriculumTable";
+import CurriculumDetails from "./Components/Curriculum/CurriculumDetails";
 
 function App() {
   return (
@@ -175,6 +177,22 @@ function App() {
           element={
             <UserLayout>
               <AllJobPost />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/curriculums"
+          element={
+            <UserLayout>
+              <CurriculumTable />
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/curriculum/:id"
+          element={
+            <UserLayout>
+              <CurriculumDetails />
             </UserLayout>
           }
         ></Route>

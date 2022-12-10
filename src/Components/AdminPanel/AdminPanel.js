@@ -19,6 +19,7 @@ import Galary from "./CsteClub/Galary";
 import OtherExp from "./CsteClub/OtherExp";
 import AddMember from "./CsteClub/AddMember";
 import JobAdmin from "./JobAdmin";
+import CurriculumAdmin from "./CurriculumAdmin";
 
 export default function AdminPanel() {
   const [page, setPage] = useState("viewTeacher");
@@ -65,6 +66,7 @@ export default function AdminPanel() {
             {page === "otherExp" && <OtherExp />}
             {page === "member" && <AddMember />}
             {page === "job" && <JobAdmin />}
+            {page === "curriculum" && <CurriculumAdmin />}
           </div>
         </div>
       </div>
@@ -96,6 +98,17 @@ export default function AdminPanel() {
               </li>
               <li>
                 <button onClick={() => setPage("viewTeacher")}>View</button>
+              </li>
+            </ul>
+          </div>
+          <div tabIndex="0" className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title font-medium">Academy</div>
+            <ul className="collapse-content menu">
+              <li>
+                <button onClick={() => setPage("curriculum")}>
+                  Add Curriculum
+                </button>
               </li>
             </ul>
           </div>
