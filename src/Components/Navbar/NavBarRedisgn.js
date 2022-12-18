@@ -80,25 +80,50 @@ export default function NavBarRedisgn() {
               style={{ zIndex: "99999" }}
             >
               <li>
-                <a>Home</a>
+                <a>HOME</a>
               </li>
-              <li>
-                <Link to="/registrationform">Registration </Link>
-              </li>
-
-              <li>
-                <Link to="/coverpagegenerator">Cover Page</Link>
-              </li>
-              <li>
-                <Link to="/coursematerials">Materials</Link>
-              </li>
-              <li>
-                <Link
-                  to="/login"
-                  className="btn btn-xs btn bg-blue-900 hover:hover:bg-blue-800 text-white p-0"
+              <li tabIndex={0}>
+                <a className="justify-between">
+                  ACADEMICS
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                  </svg>
+                </a>
+                <ul
+                  className="p-2 bg-base-100 min-w-xs submenu-left"
+                  style={{ zIndex: "99999999" }}
                 >
-                  Login
-                </Link>
+                  <li>
+                    <Link to="/curriculums">CURRICULUMS</Link>
+                  </li>
+                  <li>
+                    <Link to="/coursematerials">MATERIALS</Link>
+                  </li>
+                  <li>
+                    <Link to="/syllabus">SYLLABUS</Link>
+                  </li>
+                  <li>
+                    <Link to="/online-course">ONLINE COURSE</Link>
+                  </li>
+                  <li>
+                    <Link to="/coverpagegenerator">COVER PAGE</Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link to="/notices">NOTICE</Link>
+              </li>
+              <li>
+                <Link to="/news">NEWS</Link>
+              </li>
+              <li>
+                <Link to="/csteclub">CLUB</Link>
               </li>
 
               <li tabIndex={0}>
@@ -116,26 +141,36 @@ export default function NavBarRedisgn() {
                 </a>
                 <ul className="p-2 bg-base-100 min-w-xs submenu-left">
                   <li>
-                    <Link to="/faculty">Faculty</Link>
+                    <Link to="/faculty">FACALTY</Link>
                   </li>
                   <li>
-                    <Link to="/students">Student</Link>
-                  </li>
-                  <li>
-                    <Link to="/news">News</Link>
-                  </li>
-                  <li>
-                    <Link to="/csteclub">CSTE Club</Link>
+                    <Link to="/students">STUDENT</Link>
                   </li>
                 </ul>
               </li>
+              <li>{userInfo && <Link to="/myprofile">Dashboard</Link>}</li>
               <li>
-                <Link to="/myprofile">Dashboard</Link>
-              </li>
-              <li>
-                <button className="btn bg-blue-900 hover:hover:bg-blue-800 text-white">
-                  Logout
-                </button>
+                <div className="lg:block">
+                  {userInfo ? (
+                    <li>
+                      <button
+                        onClick={logOut}
+                        className="btn btn-md w-full bg-blue-900 hover:hover:bg-blue-800 text-white"
+                      >
+                        LOGOUT
+                      </button>
+                    </li>
+                  ) : (
+                    <div>
+                      <Link
+                        to="/login"
+                        className="btn   btn-md w-full  bg-blue-900 hover:hover:bg-blue-800 text-white"
+                      >
+                        LOGIN
+                      </Link>
+                    </div>
+                  )}
+                </div>
               </li>
             </ul>
           </div>
@@ -148,7 +183,7 @@ export default function NavBarRedisgn() {
             <li tabIndex={0}>
               <a className="justify-between">
                 ACADEMICS
-                {/* <svg
+                <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -156,7 +191,7 @@ export default function NavBarRedisgn() {
                   viewBox="0 0 24 24"
                 >
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg> */}
+                </svg>
               </a>
               <ul
                 className="p-2 innerList bg-base-100 min-w-xs"
@@ -164,6 +199,9 @@ export default function NavBarRedisgn() {
               >
                 <li>
                   <Link to="/curriculums">CURRICULUMS</Link>
+                </li>
+                <li>
+                  <Link to="/coursematerials">MATERIALS</Link>
                 </li>
                 <li>
                   <Link to="/syllabus">SYLLABUS</Link>
@@ -174,20 +212,8 @@ export default function NavBarRedisgn() {
                 <li>
                   <Link to="/coverpagegenerator">COVER PAGE</Link>
                 </li>
-                <li>
-                  <Link to="/registrationform">REGISTRATION</Link>
-                </li>
               </ul>
             </li>
-
-            <div>
-              {id &&
-                (id[id?.length - 1] === "M" || id[id?.length - 1] === "F") && (
-                  <li>
-                    <Link to="/coursematerials">MATERIALS</Link>
-                  </li>
-                )}
-            </div>
 
             <li>
               <Link to="/admin/dashboard">ADMIN</Link>
@@ -196,12 +222,15 @@ export default function NavBarRedisgn() {
               <Link to="/notices">NOTICE</Link>
             </li>
             <li>
+              <Link to="/news">NEWS</Link>
+            </li>
+            <li>
               <Link to="/csteclub">CLUB</Link>
             </li>
             <li tabIndex={0}>
               <a className="justify-between">
                 MORE
-                {/* <svg
+                <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -209,20 +238,17 @@ export default function NavBarRedisgn() {
                   viewBox="0 0 24 24"
                 >
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg> */}
+                </svg>
               </a>
               <ul
                 className="p-2 bg-base-100 innerList min-w-xs"
                 style={{ zIndex: "99999999" }}
               >
                 <li>
-                  <Link to="/faculty">Faculty</Link>
+                  <Link to="/faculty">FACULTY</Link>
                 </li>
                 <li>
-                  <Link to="/students">Student</Link>
-                </li>
-                <li>
-                  <Link to="/news">News</Link>
+                  <Link to="/students">STUDENT</Link>
                 </li>
               </ul>
             </li>
@@ -249,7 +275,7 @@ export default function NavBarRedisgn() {
                 </div>
                 <li>
                   <Link className="btn my-2 text-white" to="/myprofile">
-                    Dashboard
+                    DASHBOARD
                   </Link>
                 </li>
                 <li>
@@ -257,7 +283,7 @@ export default function NavBarRedisgn() {
                     onClick={logOut}
                     className="btn  bg-blue-900 hover:hover:bg-blue-800 text-white"
                   >
-                    Logout
+                    LOGOUT
                   </button>
                 </li>
               </ul>
@@ -266,9 +292,9 @@ export default function NavBarRedisgn() {
             <div>
               <Link
                 to="/login"
-                className="btn   btn-xs btn bg-blue-900 hover:hover:bg-blue-800 text-white"
+                className="btn   btn-xs  bg-blue-900 hover:hover:bg-blue-800 text-white"
               >
-                Login
+                LOGIN
               </Link>
             </div>
           )}

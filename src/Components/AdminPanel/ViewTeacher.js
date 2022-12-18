@@ -35,7 +35,9 @@ export default function ViewTeacher() {
   }, [deleteTeacher]);
   return (
     <div className="w-full">
-      <h2 className="text-2xl mb-2 border-b pb-2">Teachers (500)</h2>
+      <h2 className="text-2xl mb-2 border-b pb-2">
+        Teachers ({allTeacher.length})
+      </h2>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import InputField from "../Common/InputField";
-import SubmitBtn from "../Common/SubmitBtn";
-
+import InputField from "../../Common/InputField";
+import SubmitBtn from "../../Common/SubmitBtn";
+import axios from "axios";
 export default function RegistrationForm() {
   const [name, setName] = useState("");
   const [studentID, setStudentID] = useState("");
@@ -11,6 +11,7 @@ export default function RegistrationForm() {
   const [institute, setInsititue] = useState("");
   const [year, setYear] = useState("");
   const [term, setTerm] = useState("");
+  const [fee, setFee] = useState();
 
   //courses
 
@@ -45,22 +46,56 @@ export default function RegistrationForm() {
   const [course8Title, setCourse8Title] = useState("");
   const [course8Code, setCourse8Code] = useState("");
   const [course8Credits, setCourse8Credits] = useState("");
+  const regSubmit = async (e) => {
+    e.preventDefault();
+    const { data } = await axios.post("http://localhost:5000/init", {
+      studentInfo: {
+        name,
+        studentID,
+        department,
+        hall,
+        term,
+        year,
+        session,
+        institute,
+      },
+      fee,
+      studentID,
+      regForm: {
+        course1Title,
+        course1Code,
+        course1Credits,
+        course2Title,
+        course2Code,
+        course2Credits,
 
-  const [course9Title, setCourse9Title] = useState("");
-  const [course9Code, setCourse9Code] = useState("");
-  const [course9Credits, setCourse9Credits] = useState("");
+        course3Title,
+        course3Code,
+        course3Credits,
 
-  const [course10Title, setCourse10Title] = useState("");
-  const [course10Code, setCourse10Code] = useState("");
-  const [course10Credits, setCourse10Credits] = useState("");
+        course4Title,
+        course4Code,
+        course4Credits,
 
-  const [course11Title, setCourse11Title] = useState("");
-  const [course11Code, setCourse11Code] = useState("");
-  const [course11Credits, setCourse11Credits] = useState("");
+        course5Title,
+        course5Code,
+        course5Credits,
 
-  const [course12Title, setCourse12Title] = useState("");
-  const [course12Code, setCourse12Code] = useState("");
-  const [course12Credits, setCourse12Credits] = useState("");
+        course6Title,
+        course6Code,
+        course6Credits,
+
+        course7Title,
+        course7Code,
+        course7Credits,
+
+        course8Title,
+        course8Code,
+        course8Credits,
+      },
+    });
+    window.location.replace(data?.paymentUrl);
+  };
 
   useEffect(() => {
     console.log(name, studentID, course1Code);
@@ -86,7 +121,7 @@ export default function RegistrationForm() {
           <span className="font-semibold">From 20/01/22 to 01/01/23</span>
         </div>
       </div>
-      <form action="" className="w-full">
+      <form onSubmit={regSubmit} className="w-full">
         <div className="md:flex md:gap-2">
           <InputField
             type="text"
@@ -142,6 +177,15 @@ export default function RegistrationForm() {
             label="Session"
             setField={setSession}
           />
+        </div>
+        <div>
+          <InputField
+            type="number"
+            setField={setFee}
+            fieldValue={fee}
+            requiredField="true"
+            label="Fee"
+          ></InputField>
         </div>
         <h4 className="font-bold my-4">Courses</h4>
         <ol className="list-decimal">
@@ -345,110 +389,10 @@ export default function RegistrationForm() {
               </div>
             </div>
           </li>
-          <li>
-            <div>
-              <InputField
-                type="text"
-                fieldValue={course9Title}
-                label="Course Title"
-                setField={setCourse9Title}
-              />
-              <div className="flex">
-                <InputField
-                  type="text"
-                  fieldValue={course9Code}
-                  label="Course Code"
-                  setField={setCourse9Code}
-                />
-                <InputField
-                  type="text"
-                  fieldValue={course9Credits}
-                  label="Credits"
-                  setField={setCourse9Credits}
-                  className="ml-4"
-                />
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <InputField
-                type="text"
-                fieldValue={course10Title}
-                label="Course Title"
-                setField={setCourse10Title}
-              />
-              <div className="flex">
-                <InputField
-                  type="text"
-                  fieldValue={course10Code}
-                  label="Course Code"
-                  setField={setCourse10Code}
-                />
-                <InputField
-                  type="text"
-                  fieldValue={course10Credits}
-                  label="Credits"
-                  setField={setCourse10Credits}
-                  className="ml-4"
-                />
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <InputField
-                type="text"
-                fieldValue={course11Title}
-                label="Course Title"
-                setField={setCourse11Title}
-              />
-              <div className="flex">
-                <InputField
-                  type="text"
-                  fieldValue={course11Code}
-                  label="Course Code"
-                  setField={setCourse11Code}
-                />
-                <InputField
-                  type="text"
-                  fieldValue={course11Credits}
-                  label="Credits"
-                  setField={setCourse11Credits}
-                  className="ml-4"
-                />
-              </div>
-            </div>
-          </li>
-          <li>
-            <div>
-              <InputField
-                type="text"
-                fieldValue={course12Title}
-                label="Course Title"
-                setField={setCourse12Title}
-              />
-              <div className="flex">
-                <InputField
-                  type="text"
-                  fieldValue={course12Code}
-                  label="Course Code"
-                  setField={setCourse12Code}
-                />
-                <InputField
-                  type="text"
-                  fieldValue={course12Credits}
-                  label="Credits"
-                  setField={setCourse12Credits}
-                  className="ml-4"
-                />
-              </div>
-            </div>
-          </li>
         </ol>
 
         <div className="mx-auto w-full text-center my-2">
-          <SubmitBtn value="Submit"></SubmitBtn>
+          <SubmitBtn value="Pay"></SubmitBtn>
         </div>
       </form>
     </div>

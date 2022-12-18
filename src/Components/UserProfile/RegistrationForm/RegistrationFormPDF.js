@@ -1,7 +1,15 @@
-import React from "react";
-import logo from "../../img/logo.png";
+import React, { useEffect, useState } from "react";
+import logo from "../../../img/logo.png";
 import "./Registration.css";
-export default function RegistrationFormPDF({ studentDetails }) {
+
+export default function RegistrationFormPDF() {
+  const [studentDetails, setStudentDetails] = useState({});
+  const [regDetails, setRegDetails] = useState({});
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("UserDetails"));
+    setStudentDetails(user?.student?.form?.studentInfo);
+    setRegDetails(user?.student?.form?.regFormInfo);
+  }, []);
   return (
     <div id="divToPrint" className="pb-20">
       <div className="flex justify-center gap-10 border-black	border-b pb-4">
@@ -83,153 +91,153 @@ export default function RegistrationFormPDF({ studentDetails }) {
           <tbody>
             <tr>
               <td className="border border-black	">
-                {studentDetails?.course1Code}&nbsp;
+                {regDetails?.course1Code};
               </td>
               <td className="border border-black	">
-                {studentDetails?.course1Title}
+                {regDetails?.course1Title}
               </td>
               <td className="border border-black	">
-                {studentDetails?.course1Credits}
-              </td>
-              <td className="border border-black	"></td>
-            </tr>
-
-            <tr>
-              <td className="border border-black	">
-                {studentDetails?.course2Code}&nbsp;
-              </td>
-              <td className="border border-black	">
-                {studentDetails?.course2Title}
-              </td>
-              <td className="border border-black	">
-                {studentDetails?.course2Credits}
+                {regDetails?.course1Credits}
               </td>
               <td className="border border-black	"></td>
             </tr>
 
             <tr>
               <td className="border border-black	">
-                {studentDetails?.course3Code}&nbsp;
+                {regDetails?.course2Code}&nbsp;
               </td>
               <td className="border border-black	">
-                {studentDetails?.course3Title}
+                {regDetails?.course2Title}
               </td>
               <td className="border border-black	">
-                {studentDetails?.course3Credits}
-              </td>
-              <td className="border border-black	"></td>
-            </tr>
-
-            <tr>
-              <td className="border border-black	">
-                {studentDetails?.course4Code}&nbsp;
-              </td>
-              <td className="border border-black	">
-                {studentDetails?.course4Title}
-              </td>
-              <td className="border border-black	">
-                {studentDetails?.course4Credits}
+                {regDetails?.course2Credits}
               </td>
               <td className="border border-black	"></td>
             </tr>
 
             <tr>
               <td className="border border-black	">
-                {studentDetails?.course5Code}&nbsp;
+                {regDetails?.course3Code}&nbsp;
               </td>
               <td className="border border-black	">
-                {studentDetails?.course5Title}
+                {regDetails?.course3Title}
               </td>
               <td className="border border-black	">
-                {studentDetails?.course5Credits}
-              </td>
-              <td className="border border-black	"></td>
-            </tr>
-
-            <tr>
-              <td className="border border-black	">
-                {studentDetails?.course6Code}&nbsp;
-              </td>
-              <td className="border border-black	">
-                {studentDetails?.course6Title}
-              </td>
-              <td className="border border-black	">
-                {studentDetails?.course6Credits}
+                {regDetails?.course3Credits}
               </td>
               <td className="border border-black	"></td>
             </tr>
 
             <tr>
               <td className="border border-black	">
-                {studentDetails?.course7Code}&nbsp;
+                {regDetails?.course4Code}&nbsp;
               </td>
               <td className="border border-black	">
-                {studentDetails?.course7Title}
+                {regDetails?.course4Title}
               </td>
               <td className="border border-black	">
-                {studentDetails?.course7Credits}
-              </td>
-              <td className="border border-black	"></td>
-            </tr>
-            <tr>
-              <td className="border border-black	">
-                {studentDetails?.course8Code}&nbsp;
-              </td>
-              <td className="border border-black	">
-                {studentDetails?.course8Title}
-              </td>
-              <td className="border border-black	">
-                {studentDetails?.course8Credits}
+                {regDetails?.course4Credits}
               </td>
               <td className="border border-black	"></td>
             </tr>
 
             <tr>
               <td className="border border-black	">
-                {studentDetails?.course9Code}&nbsp;
+                {regDetails?.course5Code}&nbsp;
               </td>
               <td className="border border-black	">
-                {studentDetails?.course9Title}
+                {regDetails?.course5Title}
               </td>
               <td className="border border-black	">
-                {studentDetails?.course9Credits}
+                {regDetails?.course5Credits}
               </td>
               <td className="border border-black	"></td>
             </tr>
 
             <tr>
               <td className="border border-black	">
-                {studentDetails?.course10Code}&nbsp;
+                {regDetails?.course6Code}&nbsp;
               </td>
               <td className="border border-black	">
-                {studentDetails?.course10Title}
+                {regDetails?.course6Title}
               </td>
               <td className="border border-black	">
-                {studentDetails?.course10Credits}
+                {regDetails?.course6Credits}
+              </td>
+              <td className="border border-black	"></td>
+            </tr>
+
+            <tr>
+              <td className="border border-black	">
+                {regDetails?.course7Code}&nbsp;
+              </td>
+              <td className="border border-black	">
+                {regDetails?.course7Title}
+              </td>
+              <td className="border border-black	">
+                {regDetails?.course7Credits}
               </td>
               <td className="border border-black	"></td>
             </tr>
             <tr>
               <td className="border border-black	">
-                {studentDetails?.course11Code}&nbsp;
+                {regDetails?.course8Code}&nbsp;
               </td>
               <td className="border border-black	">
-                {studentDetails?.course11Title}
+                {regDetails?.course8Title}
               </td>
               <td className="border border-black	">
-                {studentDetails?.course11Credits}
+                {regDetails?.course8Credits}
+              </td>
+              <td className="border border-black	"></td>
+            </tr>
+
+            <tr>
+              <td className="border border-black	">
+                {regDetails?.course9Code}&nbsp;
+              </td>
+              <td className="border border-black	">
+                {regDetails?.course9Title}
+              </td>
+              <td className="border border-black	">
+                {regDetails?.course9Credits}
+              </td>
+              <td className="border border-black	"></td>
+            </tr>
+
+            <tr>
+              <td className="border border-black	">
+                {regDetails?.course10Code}&nbsp;
+              </td>
+              <td className="border border-black	">
+                {regDetails?.course10Title}
+              </td>
+              <td className="border border-black	">
+                {regDetails?.course10Credits}
               </td>
               <td className="border border-black	"></td>
             </tr>
             <tr>
               <td className="border border-black	">
-                {studentDetails?.course12Code}&nbsp;
+                {regDetails?.course11Code}&nbsp;
               </td>
               <td className="border border-black	">
-                {studentDetails?.course12Title}
+                {regDetails?.course11Title}
               </td>
               <td className="border border-black	">
-                {studentDetails?.course12Credits}
+                {regDetails?.course11Credits}
+              </td>
+              <td className="border border-black	"></td>
+            </tr>
+            <tr>
+              <td className="border border-black	">
+                {regDetails?.course12Code}&nbsp;
+              </td>
+              <td className="border border-black	">
+                {regDetails?.course12Title}
+              </td>
+              <td className="border border-black	">
+                {regDetails?.course12Credits}
               </td>
               <td className="border border-black	"></td>
             </tr>

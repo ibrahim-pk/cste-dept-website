@@ -66,10 +66,7 @@ const AllJobPost = () => {
         </div>
       )}
       <div className="card-actions justify-end">
-        <Link
-          to="/"
-          className="btn btn-outline btn-sm hover:bg-blue-900"
-        >
+        <Link to="/" className="btn btn-outline btn-sm hover:bg-blue-900">
           Back
         </Link>
       </div>

@@ -25,7 +25,6 @@ export default function Home() {
           <NoticeHome />
         </div>
       </div>
-      <ResearchHome />
       <CSTEClubHome />
       <JobPost />
     </div>

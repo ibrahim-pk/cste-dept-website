@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RegistrationFormView from "../RegistrationForm/RegistrationFormView";
+import RegistrationFormView from "./RegistrationForm/RegistrationFormView";
 import styles from "./UserProfile.css";
 import EditProfile from "./EditProfile";
 import Result from "./Result";
@@ -8,6 +8,7 @@ import HSCForm from "./HscSscForm/HSCForm";
 import SSCForm from "./HscSscForm/SSCForm";
 import ProfileCard from "./ProfileCard";
 import Materials from "./Materials";
+import { Link } from "react-router-dom";
 
 export default function () {
   const [page, setPage] = useState();
@@ -191,8 +192,23 @@ export default function () {
             </li>
 
             <li>
+              <Link to="/registrationform">
+                <button>Registration</button>
+              </Link>
+            </li>
+            <li>
+              <button onClick={() => setPage("Registration")}>
+                Admit Card
+              </button>
+            </li>
+            <li>
               <button onClick={() => setPage("RegistrationView")}>
-                Registration View
+                Admit Card Download
+              </button>
+            </li>
+            <li>
+              <button onClick={() => setPage("RegistrationView")}>
+                Registration Form Download
               </button>
             </li>
 

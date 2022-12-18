@@ -3,9 +3,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
-import RegistrationForm from "./Components/RegistrationForm/RegistrationForm";
-import RegistrationFormView from "./Components/RegistrationForm/RegistrationFormView";
-import ViewRegistrationPage from "./Components/RegistrationForm/ViewRegistrationPage";
+
 import AssignmentForm from "./Components/AssignmentCoverPage/AssignmentForm";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import EditProfile from "./Components/UserProfile/EditProfile";
@@ -27,6 +25,9 @@ import CSTEClub from "./Components/CSTEClub/CSTEClub";
 import AllJobPost from "./Components/Home/Job/AllJobPost";
 import CurriculumTable from "./Components/Curriculum/CurriculumTable";
 import CurriculumDetails from "./Components/Curriculum/CurriculumDetails";
+import RegistrationForm from "./Components/UserProfile/RegistrationForm/RegistrationForm";
+import RegistrationFormView from "./Components/UserProfile/RegistrationForm/RegistrationFormView";
+import ViewRegistrationPage from "./Components/UserProfile/RegistrationForm/ViewRegistrationPage";
 
 function App() {
   return (
@@ -141,7 +142,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/newsview/"
+          path="/newsview/:id"
           element={
             <UserLayout>
               <SingleNews />

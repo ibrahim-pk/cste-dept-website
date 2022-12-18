@@ -1,13 +1,56 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import InputField from "../../Common/InputField";
 import SubmitBtn from "../../Common/SubmitBtn";
 
 export default function AddNotice() {
+  const [imgUrl, setImageUrl] = useState("");
   const [title, setTitle] = useState("");
-  const [link, setLink] = useState("");
-  const [tags, setTags] = useState("");
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const handleImageUpload = async (e) => {
+    setLoading(true);
+    const imageFile = e.target.files[0];
+    const data = new FormData();
+    data.append("file", imageFile);
+    //your folder name
+    data.append("upload_preset", "WinnerImg");
+    data.append("cloud_name", "ditdynru4");
+
+    try {
+      const result = await axios.post(
+        //aykhne [Your Cloudinary Cloud Name] baki link thik thak thakbe
+        "https://api.cloudinary.com/v1_1/ditdynru4/image/upload",
+        data
+      );
+      // console.log(result?.data?.url);
+      setImageUrl(result?.data?.url);
+      setLoading(false);
+    } catch (error) {
+      setError(error.massage);
+      setLoading(false);
+    }
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!imgUrl && !title) {
+      toast.error("Fillup the form properly");
+      return;
+    } else {
+      const { data } = await axios.post(
+        "http://localhost:5000/api/add/notice",
+        {
+          imgUrl,
+          title,
+          date: new Date().toISOString().split("T")[0],
+        }
+      );
+      //console.log(data);
+      toast.success(data.msg);
+      setImageUrl(" ");
+      setTitle(" ");
+    }
   };
   return (
     <div className="w-full">
@@ -20,22 +63,25 @@ export default function AddNotice() {
           requiredField="true"
           label="Title"
         ></InputField>
-        <InputField
-          type="text"
-          setField={setLink}
-          fieldValue={link}
-          label="PDF Link"
-        ></InputField>
-        <InputField
-          type="text"
-          setField={setTags}
-          fieldValue={tags}
-          label="Tags"
-        ></InputField>
+
+        <div className="my-2">
+          <input
+            type="file"
+            onChange={handleImageUpload}
+            className="file-input file-input-bordered w-full max-w-xs"
+          />
+          <div>
+            {loading && (
+              <h1 className="text-xl font-bold text-sky-700">Uploading....</h1>
+            )}
+          </div>
+        </div>
         <div className="w-full text-right">
           <SubmitBtn value="Add Notice"></SubmitBtn>
         </div>
       </form>
+      <div>{error && <h4>{error}</h4>}</div>
+      <Toaster />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import InputField from "../Common/InputField";
-import SubmitBtn from "../Common/SubmitBtn";
+import InputField from "../../Common/InputField";
+import SubmitBtn from "../../Common/SubmitBtn";
 const CurriculumAdmin = () => {
   const [courseCode, setCourseCode] = useState("");
   const [courseTitle, setCourseTitle] = useState("");

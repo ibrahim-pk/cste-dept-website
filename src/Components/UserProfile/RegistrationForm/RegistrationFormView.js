@@ -1,38 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/logo.png";
+import logo from "../../../img/logo.png";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import "./Registration.css";
 import RegistrationFormPDF from "./RegistrationFormPDF";
-import Loading from "../Common/Loading";
+import Loading from "../../Common/Loading";
 export default function () {
-  const [studentDetails, setStudentDetails] = useState({});
   const [downloading, setDownloading] = useState(false);
   const [regId, setRegId] = useState("");
+  const [studentDetails, setStudentDetails] = useState({});
+  const [regDetails, setRegDetails] = useState({});
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("UserDetails"));
+    setStudentDetails(user?.student?.form?.studentInfo);
+    setRegDetails(user?.student?.form?.regFormInfo);
+  }, []);
 
   const handleDownloadPDF = async (id) => {
-    await setStudentDetails({
-      name: "Borhan",
-      studentID: "ASH2101008M",
-      department: "CSTE",
-      hall: "ASH",
-      session: "2020-21",
-      institute: "Eng.",
-      year: "01",
-      term: "01",
-      course1Code: "CSTE1101",
-      course1Title: "Computer Fundamentals",
-      course1Credits: "4.00",
-      course2Code: "CSTE1101",
-      course2Title: "Computer Fundamentals",
-      course2Credits: "4.00",
-
-      course3Code: "CSTE1101",
-      course3Title:
-        "Computer Fundamentals Computer Fundamentals Computer FundamentalsComputer Fundamentals Computer Fundamentals Computer Fundamentals",
-      course3Credits: "4.00",
-    });
     const input = document.getElementById("makePDF");
     setDownloading(true);
     input.removeAttribute("hidden");
@@ -64,38 +49,32 @@ export default function () {
     <>
       {downloading ? (
         <Loading data="Downloading"></Loading>
-      ) : (
+      ) : !downloading && studentDetails && regDetails ? (
         <div className="pt-2 px-5 max-w-screen-lg mx-auto w-full mb-4">
           <h2 className="text-2xl  ">Registration Form</h2>
           <Link to="/registrationform" className="btn btn-ghost my-4">
             Register
           </Link>
           <div className="overflow-x-auto">
-            <table className="table table-zebra w-full">
+            <table className="table text-center table-zebra w-full">
               <thead>
                 <tr>
-                  <th></th>
-                  <th>Year</th>
-                  <th>Term</th>
+                  <th>Id</th>
+                  <th>Year/Term</th>
+                  <th>Download</th>
+                  <th>View</th>
                   <th>Date</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>1</th>
-                  <td>01</td>
-                  <td>01</td>
-                  <td>11-02-22</td>
+                  <td>{studentDetails.studentID}</td>
                   <td>
-                    <button className="btn btn-ghost btn-xs">Edit</button>
+                    Y-{studentDetails.year},T-{studentDetails.term}
                   </td>
                   <td>
                     <button
-                      className="btn btn-ghost btn-xs"
+                      className="btn btn-xs"
                       onClick={() => handleDownloadPDF(123)}
                     >
                       Download PDF
@@ -105,13 +84,13 @@ export default function () {
                     <label
                       htmlFor="my-modal-6"
                       onClick={() => setRegId("registration id")}
-                      className="btn btn-ghost btn-xs"
+                      className="btn btn-info btn-xs"
                     >
                       View
                     </label>
                   </td>
                   <td>
-                    <button className="btn btn-ghost btn-xs">Delete</button>
+                    <button className="btn btn-error btn-xs">Delete</button>
                   </td>
                 </tr>
               </tbody>
@@ -127,9 +106,7 @@ export default function () {
                 className="px-10 py-10"
                 style={{ width: "100%", height: "100%" }}
               >
-                <RegistrationFormPDF
-                  studentDetails={studentDetails}
-                ></RegistrationFormPDF>
+                <RegistrationFormPDF></RegistrationFormPDF>
               </div>
             </div>
           </div>
@@ -143,33 +120,15 @@ export default function () {
               </div>
 
               <div className="py-4">
-                <RegistrationFormPDF
-                  studentDetails={{
-                    name: "Borhan",
-                    studentID: "ASH2101008M",
-                    department: "CSTE",
-                    hall: "ASH",
-                    session: "2020-21",
-                    institute: "Eng.",
-                    year: "01",
-                    term: "01",
-                    course1Code: "CSTE1101",
-                    course1Title: "Computer Fundamentals",
-                    course1Credits: "4.00",
-                    course2Code: "CSTE1101",
-                    course2Title: "Computer Fundamentals",
-                    course2Credits: "4.00",
-
-                    course3Code: "CSTE1101",
-                    course3Title:
-                      "Computer Fundamentals Computer Fundamentals Computer FundamentalsComputer Fundamentals Computer Fundamentals Computer Fundamentals",
-                    course3Credits: "4.00",
-                  }}
-                />
+                <RegistrationFormPDF />
               </div>
             </div>
           </div>
         </div>
+      ) : (
+        <h1 className="text-center my-10 card p-5 shadow-lg text-error">
+          Please Fillup the form!
+        </h1>
       )}
     </>
   );

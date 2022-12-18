@@ -14,7 +14,6 @@ export default function CSTEClub() {
       <TopCodder />
       <OtherExpClub />
       <ClubPanel />
-      <AboutClub />
     </div>
   );
 }

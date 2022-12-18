@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InputField from "../Common/InputField";
-import RegistrationFormPDF from "../RegistrationForm/RegistrationFormPDF";
+import RegistrationFormPDF from "../UserProfile/RegistrationForm/RegistrationFormPDF";
 
 export default function RegistrationViews({ year, term }) {
   const [search, setSearch] = useState("");
