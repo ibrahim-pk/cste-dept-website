@@ -41,13 +41,16 @@ const JobAdmin = () => {
       toast.error("Fillup the form properly");
       return;
     } else {
-      const { data } = await axios.post("http://localhost:5000/api/add/job", {
-        imgUrl,
-        name,
-        joinDate,
-        position,
-        company,
-      });
+      const { data } = await axios.post(
+        "https://cste-club-ibrahimecste.vercel.app/api/add/job",
+        {
+          imgUrl,
+          name,
+          joinDate,
+          position,
+          company,
+        }
+      );
       //console.log(data);
       toast.success(data.msg);
       setImageUrl("");

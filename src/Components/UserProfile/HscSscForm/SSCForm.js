@@ -17,7 +17,7 @@ export default function SSCForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await axios.patch(
-      `http://localhost:5000/api/student/ssc/${loginStudent?._id}`,
+      `https://cste-club-ibrahimecste.vercel.app/api/student/ssc/${loginStudent?._id}`,
       {
         board,
         roll,

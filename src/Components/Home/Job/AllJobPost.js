@@ -8,7 +8,9 @@ const AllJobPost = () => {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const { data } = await axios.get("http://localhost:5000/api/add/job");
+      const { data } = await axios.get(
+        "https://cste-club-ibrahimecste.vercel.app/api/add/job"
+      );
       setAllJobPost(data?.jobList);
       setLoading(false);
     };

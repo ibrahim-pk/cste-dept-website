@@ -12,6 +12,7 @@ export default function AddAndViewChairmanMSG() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const token = JSON.parse(localStorage.getItem("UserDetails"));
   const handleImageUpload = async (e) => {
     setLoading(true);
     const imageFile = e.target.files[0];
@@ -42,12 +43,17 @@ export default function AddAndViewChairmanMSG() {
       return;
     } else {
       const { data } = await axios.post(
-        "http://localhost:5000/api/chairman/sms",
+        "https://cste-club-ibrahimecste.vercel.app/api/chairman/sms",
         {
           imgUrl,
           name,
           details,
           role,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token?.token}`,
+          },
         }
       );
       //console.log(data);

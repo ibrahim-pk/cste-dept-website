@@ -39,12 +39,15 @@ export default function AddNews() {
       toast.error("Fillup the form properly");
       return;
     } else {
-      const { data } = await axios.post("http://localhost:5000/api/add/news", {
-        imgUrl,
-        title,
-        details,
-        date: new Date().toISOString().split("T")[0],
-      });
+      const { data } = await axios.post(
+        "https://cste-club-ibrahimecste.vercel.app/api/add/news",
+        {
+          imgUrl,
+          title,
+          details,
+          date: new Date().toISOString().split("T")[0],
+        }
+      );
       //console.log(data);
       toast.success(data.msg);
       setImageUrl("");

@@ -31,15 +31,18 @@ const ProfileCard = ({ loginStudent }) => {
   };
   const addImg = () => {
     if (imgUrl) {
-      fetch(`http://localhost:5000/api/student/profile/${loginStudent?._id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          picture: imgUrl,
-        }),
-      })
+      fetch(
+        `https://cste-club-ibrahimecste.vercel.app/api/student/profile/${loginStudent?._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            picture: imgUrl,
+          }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.error) {

@@ -7,7 +7,7 @@ export default function AllTeachers() {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/api/teacher/add")
+    fetch("https://cste-club-ibrahimecste.vercel.app/api/teacher/add")
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {

@@ -12,7 +12,7 @@ const CurriculumAdmin = () => {
   const [term, setTerm] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/add/curriculum", {
+    fetch("https://cste-club-ibrahimecste.vercel.app/api/add/curriculum", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

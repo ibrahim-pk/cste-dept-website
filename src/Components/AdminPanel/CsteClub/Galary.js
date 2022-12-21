@@ -37,10 +37,13 @@ const Galary = () => {
       toast.error("Fillup the form properly");
       return;
     } else {
-      const { data } = await axios.post("http://localhost:5000/api/img/add", {
-        imgUrl,
-        date: new Date(),
-      });
+      const { data } = await axios.post(
+        "https://cste-club-ibrahimecste.vercel.app/api/img/add",
+        {
+          imgUrl,
+          date: new Date(),
+        }
+      );
       //console.log(data);
       toast.success(data.msg);
       setImageUrl("");

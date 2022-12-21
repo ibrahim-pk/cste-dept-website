@@ -9,7 +9,9 @@ export default function NewsHome() {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const { data } = await axios.get("http://localhost:5000/api/add/news");
+      const { data } = await axios.get(
+        "https://cste-club-ibrahimecste.vercel.app/api/add/news"
+      );
       setNews(data?.news);
       setLoading(false);
     };

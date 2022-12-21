@@ -199,94 +199,15 @@ export default function AdminPanel() {
           </div>
           <div tabIndex="0" className="collapse collapse-arrow">
             <input type="checkbox" />
-            <div className="collapse-title font-medium">Registration</div>
+            <div className="collapse-title font-medium">Online Payment</div>
             <ul className="collapse-content menu">
               <li>
                 <button
                   onClick={() => {
                     setPage("viewRegistraion");
-                    serYear("1");
-                    setTerm("1");
                   }}
                 >
-                  1-1
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setPage("viewRegistraion");
-                    serYear("1");
-                    setTerm("2");
-                  }}
-                >
-                  1-2
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setPage("viewRegistraion");
-                    serYear("2");
-                    setTerm("1");
-                  }}
-                >
-                  2-1
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setPage("viewRegistraion");
-                    serYear("2");
-                    setTerm("2");
-                  }}
-                >
-                  2-2
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setPage("viewRegistraion");
-                    serYear("3");
-                    setTerm("1");
-                  }}
-                >
-                  3-1
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setPage("viewRegistraion");
-                    serYear("3");
-                    setTerm("2");
-                  }}
-                >
-                  3-2
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setPage("viewRegistraion");
-                    serYear("4");
-                    setTerm("1");
-                  }}
-                >
-                  4-1
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setPage("viewRegistraion");
-                    serYear("4");
-                    setTerm("2");
-                  }}
-                >
-                  4-2
+                  Registration
                 </button>
               </li>
             </ul>

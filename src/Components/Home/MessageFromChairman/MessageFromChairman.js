@@ -9,7 +9,7 @@ export default function MessageFromChairman() {
     const fetchData = async () => {
       setLoader(true);
       const { data } = await axios.get(
-        "http://localhost:5000/api/chairman/sms"
+        "https://cste-club-ibrahimecste.vercel.app/api/chairman/sms"
       );
       setSms(data?.sms.reverse());
       setLoader(false);

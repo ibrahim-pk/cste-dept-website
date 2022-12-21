@@ -7,7 +7,9 @@ export default function Students() {
   const [loadingData, setLoadingData] = useState(false);
   useEffect(() => {
     setLoadingData(true);
-    fetch(`http://localhost:5000/api/student/add?batch=${session}`)
+    fetch(
+      `https://cste-club-ibrahimecste.vercel.app/api/student/add?batch=${session}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {

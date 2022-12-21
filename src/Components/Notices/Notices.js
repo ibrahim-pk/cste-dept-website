@@ -12,7 +12,7 @@ export default function Notices() {
     setLoading(true);
     const fetchData = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/add/all/notice"
+        "https://cste-club-ibrahimecste.vercel.app/api/add/all/notice"
       );
       //console.log(data);
       setAllNotice(data?.allNotice.reverse());

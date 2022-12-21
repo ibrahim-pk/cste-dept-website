@@ -5,7 +5,9 @@ const Galary = () => {
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get("http://localhost:5000/api/img/add");
+      const { data } = await axios.get(
+        "https://cste-club-ibrahimecste.vercel.app/api/img/add"
+      );
       setPhotos(data?.imgList);
     };
     fetchData();

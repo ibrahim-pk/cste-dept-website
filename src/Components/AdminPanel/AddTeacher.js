@@ -37,13 +37,14 @@ export default function AddTeacher() {
       setLoading(false);
     }
   };
-
+  const token = JSON.parse(localStorage.getItem("UserDetails"));
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/teacher/add", {
+    fetch("https://cste-club-ibrahimecste.vercel.app/api/teacher/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${token?.token}`,
       },
       body: JSON.stringify({
         name,

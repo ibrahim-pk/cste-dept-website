@@ -10,7 +10,7 @@ const RagistrationFormAdmin = () => {
   const [fee, setFee] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/add/curriculum", {
+    fetch("https://cste-club-ibrahimecste.vercel.app/api/add/curriculum", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

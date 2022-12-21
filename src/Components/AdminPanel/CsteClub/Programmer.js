@@ -45,7 +45,7 @@ const Programmer = () => {
       return;
     } else {
       const { data } = await axios.post(
-        "http://localhost:5000/api/programmer/add",
+        "https://cste-club-ibrahimecste.vercel.app/api/programmer/add",
         {
           imgUrl,
           name,

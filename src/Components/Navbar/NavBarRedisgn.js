@@ -14,7 +14,6 @@ export default function NavBarRedisgn() {
     setUserInfo(user?.student);
   }, [reLoader]);
   const id = userInfo?.studentId;
-  //console.log(id && id[id?.length - 1]);
   return (
     <div>
       {/* header for large screen */}
@@ -116,6 +115,18 @@ export default function NavBarRedisgn() {
                   </li>
                 </ul>
               </li>
+              {id === "cstedeptadmin" && (
+                <li>
+                  <Link to="/admin/dashboard">ADMIN</Link>
+                </li>
+              )}
+
+              <li>
+                <Link to="/registrationform">REGISTRATION</Link>
+              </li>
+              <li>
+                <Link to="/admitform">EXAM FEE</Link>
+              </li>
               <li>
                 <Link to="/notices">NOTICE</Link>
               </li>
@@ -216,7 +227,15 @@ export default function NavBarRedisgn() {
             </li>
 
             <li>
-              <Link to="/admin/dashboard">ADMIN</Link>
+              {id === "cstedeptadmin" && (
+                <Link to="/admin/dashboard">ADMIN</Link>
+              )}
+            </li>
+            <li>
+              <Link to="/registrationform">REGISTRATION</Link>
+            </li>
+            <li>
+              <Link to="/admitform">EXAM FEE</Link>
             </li>
             <li>
               <Link to="/notices">NOTICE</Link>

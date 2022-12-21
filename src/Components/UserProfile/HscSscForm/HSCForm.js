@@ -18,7 +18,7 @@ export default function HSCForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await axios.patch(
-      `http://localhost:5000/api/student/hsc/${loginStudent?._id}`,
+      `https://cste-club-ibrahimecste.vercel.app/api/student/hsc/${loginStudent?._id}`,
       {
         board,
         roll,

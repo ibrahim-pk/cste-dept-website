@@ -9,7 +9,7 @@ const CurriculumDetails = () => {
     const fetchData = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5000/api/add/curriculum/${id}`
+        `https://cste-club-ibrahimecste.vercel.app/api/add/curriculum/${id}`
       );
       setCurriculumData(data?.course);
       setLoading(false);

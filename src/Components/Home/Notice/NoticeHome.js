@@ -8,13 +8,22 @@ import axios from "axios";
 export default function NoticeHome() {
   const [loading, setLoading] = useState(false);
   const [notice, setNotice] = useState([]);
+  const token = JSON.parse(localStorage.getItem("UserDetails"));
+  //console.log(token.token);
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const { data } = await axios.get("http://localhost:5000/api/add/notice");
-      //  console.log(data);
-      setNotice(data?.notice.reverse());
-      setLoading(false);
+      fetch("https://cste-club-ibrahimecste.vercel.app/api/add/notice", {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${token?.token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setNotice(data?.notice.reverse());
+          setLoading(false);
+        });
     };
     fetchData();
   }, []);

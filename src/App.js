@@ -28,6 +28,9 @@ import CurriculumDetails from "./Components/Curriculum/CurriculumDetails";
 import RegistrationForm from "./Components/UserProfile/RegistrationForm/RegistrationForm";
 import RegistrationFormView from "./Components/UserProfile/RegistrationForm/RegistrationFormView";
 import ViewRegistrationPage from "./Components/UserProfile/RegistrationForm/ViewRegistrationPage";
+import AdmitCardForm from "./Components/UserProfile/AdmitCardForm.js/AdmitCardForm";
+import SuccessPayment from "./Components/SuccessPayment/SuccessPayment";
+import PrivateRouter from "./Components/Router/PrivateRouter";
 
 function App() {
   return (
@@ -53,7 +56,29 @@ function App() {
           path="/registrationform"
           element={
             <UserLayout>
-              <RegistrationForm />
+              <PrivateRouter>
+                <RegistrationForm />
+              </PrivateRouter>
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/admitform"
+          element={
+            <UserLayout>
+              <PrivateRouter>
+                <AdmitCardForm />
+              </PrivateRouter>
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/success/:id"
+          element={
+            <UserLayout>
+              <PrivateRouter>
+                <SuccessPayment />
+              </PrivateRouter>
             </UserLayout>
           }
         ></Route>
@@ -61,7 +86,9 @@ function App() {
           path="/myregistrationform"
           element={
             <UserLayout>
-              <RegistrationFormView />
+              <PrivateRouter>
+                <RegistrationFormView />
+              </PrivateRouter>
             </UserLayout>
           }
         />
@@ -89,7 +116,9 @@ function App() {
           path="/editprofile"
           element={
             <UserLayout>
-              <EditProfile />
+              <PrivateRouter>
+                <EditProfile />
+              </PrivateRouter>
             </UserLayout>
           }
         ></Route>
@@ -97,7 +126,9 @@ function App() {
           path="/coursematerials"
           element={
             <UserLayout>
-              <CourseMaterials />
+              <PrivateRouter>
+                <CourseMaterials />
+              </PrivateRouter>
             </UserLayout>
           }
         ></Route>

@@ -53,7 +53,7 @@ const OtherExp = () => {
       return;
     } else {
       const { data } = await axios.post(
-        "http://localhost:5000/api/other/exp/add",
+        "https://cste-club-ibrahimecste.vercel.app/api/other/exp/add",
         {
           imgUrl,
           name,

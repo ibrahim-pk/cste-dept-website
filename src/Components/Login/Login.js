@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputField from "../Common/InputField";
 import SubmitBtn from "../Common/SubmitBtn";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 export default function Login() {
   const [studentID, setStudentID] = useState("");
   const [stduentPassword, setStudentPassword] = useState("");
+  const [logUser, setLogUser] = useState(false);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleStudnetLogin = async (e) => {
     e.preventDefault();
     setError("");
@@ -17,7 +23,7 @@ export default function Login() {
       setError("Password Should be greater than 6 characters.");
     } else {
       const { data } = await axios.post(
-        "http://localhost:5000/api/user/login",
+        "https://cste-club-ibrahimecste.vercel.app/api/user/login",
         {
           studentID,
           stduentPassword,
@@ -27,6 +33,7 @@ export default function Login() {
         toast.error(data.error);
       } else {
         localStorage.setItem("UserDetails", JSON.stringify(data));
+        setLogUser(true);
         toast.success(data.msg);
         setStudentID("");
         setStudentPassword("");
@@ -36,6 +43,12 @@ export default function Login() {
     }
   };
 
+  useEffect(() => {
+    window.document.title = "CSTE||LOGIN";
+    if (logUser) {
+      navigate(from, { replace: true });
+    }
+  }, [navigate, from, logUser]);
   return (
     <div className="md:mt-28 mt-16 mx-auto text-center">
       <h2 className="text-3xl mb-4">Login</h2>

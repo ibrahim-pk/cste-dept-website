@@ -6,7 +6,7 @@ const ClubPanel = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/add/club/members"
+        "https://cste-club-ibrahimecste.vercel.app/api/add/club/members"
       );
       setAllMembers(data?.members);
     };

@@ -22,7 +22,7 @@ export default function CSTEClubHome() {
                 </li>
                 <li className={`step  ${styles.step}`}>Web Development</li>
                 <li className={`step  ${styles.step}`}>Apps Development</li>
-                <li className={`step  ${styles.step}`}>Cyber Sequrite</li>
+                <li className={`step  ${styles.step}`}>Cyber Securite</li>
               </ul>
             </AnimationOnScroll>
           </div>

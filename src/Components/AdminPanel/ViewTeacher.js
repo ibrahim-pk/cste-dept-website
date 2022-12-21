@@ -4,12 +4,15 @@ import toast, { Toaster } from "react-hot-toast";
 export default function ViewTeacher() {
   const [allTeacher, setAllTeacher] = useState("");
   const deleteTeacher = (id) => {
-    fetch(`http://localhost:5000/api/teacher/delete/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://cste-club-ibrahimecste.vercel.app/api/teacher/delete/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
@@ -21,7 +24,7 @@ export default function ViewTeacher() {
       });
   };
   useEffect(() => {
-    fetch("http://localhost:5000/api/teacher/add")
+    fetch("https://cste-club-ibrahimecste.vercel.app/api/teacher/add")
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {

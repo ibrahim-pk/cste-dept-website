@@ -3,8 +3,13 @@ import InputField from "../../Common/InputField";
 import SubmitBtn from "../../Common/SubmitBtn";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
-export default function RegistrationForm() {
+export default function AdmitCardForm() {
   const [name, setName] = useState("");
+  const [fatherName, setFatherName] = useState("");
+  const [motherName, setMotherName] = useState("");
+  const [examYear, setExamYear] = useState("");
+  const [examDate, setExamDate] = useState("");
+  const [examPercentange, setExamPercentange] = useState("");
   const [studentID, setStudentID] = useState("");
   const [department, setDepartment] = useState("");
   const [hall, setHall] = useState("");
@@ -16,7 +21,6 @@ export default function RegistrationForm() {
 
   //loader
   const [loading, setLoading] = useState(false);
-
   //courses
 
   const [course1Title, setCourse1Title] = useState("");
@@ -51,6 +55,7 @@ export default function RegistrationForm() {
   const [course8Code, setCourse8Code] = useState("");
   const [course8Credits, setCourse8Credits] = useState("");
   const token = JSON.parse(localStorage.getItem("UserDetails"));
+
   const regSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -120,9 +125,12 @@ export default function RegistrationForm() {
     }
   };
 
+  useEffect(() => {
+    console.log(name, studentID, course1Code);
+  });
   return (
     <div className="mx-auto max-w-screen-xl	 w-full px-4 mt-16 mb-4">
-      <h2 className="text-3xl mb-4 text-center">Registration Form</h2>
+      <h2 className="text-3xl mb-4 text-center">Exam fee Form</h2>
       <div className="alert alert-info shadow-lg">
         <div>
           <svg
@@ -142,14 +150,28 @@ export default function RegistrationForm() {
         </div>
       </div>
       <form onSubmit={regSubmit} className="w-full">
+        <InputField
+          type="text"
+          fieldValue={name}
+          requiredField="true"
+          label="Name"
+          setField={setName}
+        />
+        <InputField
+          type="text"
+          fieldValue={fatherName}
+          requiredField="true"
+          label="Father Name"
+          setField={setFatherName}
+        />
+        <InputField
+          type="text"
+          fieldValue={motherName}
+          requiredField="true"
+          label="Mother Name"
+          setField={setMotherName}
+        />
         <div className="md:flex md:gap-2">
-          <InputField
-            type="text"
-            fieldValue={name}
-            requiredField="true"
-            label="Name"
-            setField={setName}
-          />
           <InputField
             type="text"
             fieldValue={studentID}
@@ -164,6 +186,27 @@ export default function RegistrationForm() {
             requiredField="true"
             label="Department"
             setField={setDepartment}
+          />
+          <InputField
+            type="text"
+            fieldValue={examDate}
+            requiredField="true"
+            label="Exam date"
+            setField={setExamDate}
+          />
+          <InputField
+            type="text"
+            fieldValue={examYear}
+            requiredField="true"
+            label="Exam Year"
+            setField={setExamYear}
+          />
+          <InputField
+            type="text"
+            fieldValue={examPercentange}
+            requiredField="true"
+            label="Percentange"
+            setField={setExamPercentange}
           />
         </div>
         <div className="md:flex md:gap-2">
@@ -186,23 +229,23 @@ export default function RegistrationForm() {
           <InputField
             type="text"
             fieldValue={year}
-            requiredField="true"
             label="Year"
+            requiredField="true"
             setField={setYear}
           />
 
           <InputField
             type="text"
             fieldValue={term}
-            requiredField="true"
             label="Term"
+            requiredField="true"
             setField={setTerm}
           />
           <InputField
             type="text"
             fieldValue={session}
-            requiredField="true"
             label="Session"
+            requiredField="true"
             setField={setSession}
           />
         </div>

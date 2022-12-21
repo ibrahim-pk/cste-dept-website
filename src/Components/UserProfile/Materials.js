@@ -18,7 +18,7 @@ const Materials = () => {
     } else {
       setLoading(true);
       const { data } = await axios.post(
-        "http://localhost:5000/api/add/material",
+        "https://cste-club-ibrahimecste.vercel.app/api/add/material",
         {
           driveLink,
           term,

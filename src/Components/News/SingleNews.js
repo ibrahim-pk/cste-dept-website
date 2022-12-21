@@ -12,7 +12,7 @@ export default function SingleNews() {
     setLoading(true);
     const fetchData = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/api/add/news/${id}`
+        `https://cste-club-ibrahimecste.vercel.app/api/add/news/${id}`
       );
       //console.log(data);
       setSingleNews(data?.singleNews);

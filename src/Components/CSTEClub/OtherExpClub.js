@@ -7,7 +7,7 @@ const OtherExpClub = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/other/exp/add"
+        "https://cste-club-ibrahimecste.vercel.app/api/other/exp/add"
       );
       setProgrammer(data?.expList.reverse());
     };

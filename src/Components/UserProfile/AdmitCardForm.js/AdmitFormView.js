@@ -6,7 +6,6 @@ import html2canvas from "html2canvas";
 import "./Registration.css";
 import RegistrationFormPDF from "./RegistrationFormPDF";
 import Loading from "../../Common/Loading";
-import RegFormMoneyRecipt from "./RegFormMoneyRecipt";
 export default function () {
   const [downloading, setDownloading] = useState(false);
   const [regId, setRegId] = useState("");
@@ -18,7 +17,7 @@ export default function () {
     setRegDetails(user?.student?.form?.regFormInfo);
   }, []);
 
-  const handleRegDownloadPDF = async (id) => {
+  const handleDownloadPDF = async (id) => {
     const input = document.getElementById("makePDF");
     setDownloading(true);
     input.removeAttribute("hidden");
@@ -41,34 +40,7 @@ export default function () {
       pdf.addImage(imgData, "PNG", 0, 0, 210, 300);
 
       // pdf.output('dataurlnewwindow');
-      pdf.save(`Regsistration-Form.pdf`);
-      setDownloading(false);
-    });
-  };
-  const handlePayDownloadPDF = async (id) => {
-    const input = document.getElementById("makePayPDF");
-    setDownloading(true);
-    input.removeAttribute("hidden");
-    var options = {
-      quality: 1,
-      scale: 5,
-      dpi: 192,
-      scrollX: 0,
-      scrollY: -window.scrollY,
-    };
-    html2canvas(input, options).then((canvas) => {
-      // var imgData = new Image();
-
-      const imgData = canvas.toDataURL("image/png");
-
-      // imgData.width = 500;
-      const pdf = new jsPDF();
-      input.setAttribute("hidden", "true");
-
-      pdf.addImage(imgData, "PNG", 0, 0, 210, 300);
-
-      // pdf.output('dataurlnewwindow');
-      pdf.save(`payment-Form.pdf`);
+      pdf.save(`dowload.pdf`);
       setDownloading(false);
     });
   };
@@ -80,16 +52,18 @@ export default function () {
       ) : !downloading && studentDetails && regDetails ? (
         <div className="pt-2 px-5 max-w-screen-lg mx-auto w-full mb-4">
           <h2 className="text-2xl  ">Registration Form</h2>
-          <div className="overflow-x-auto my-10">
+          <Link to="/registrationform" className="btn btn-ghost my-4">
+            Register
+          </Link>
+          <div className="overflow-x-auto">
             <table className="table text-center table-zebra w-full">
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Y-T</th>
-                  <th>Reg-Form</th>
-                  <th>Money-Recipt</th>
+                  <th>Year/Term</th>
+                  <th>Download</th>
                   <th>View</th>
-                  <th>Delete</th>
+                  <th>Date</th>
                 </tr>
               </thead>
               <tbody>
@@ -101,17 +75,9 @@ export default function () {
                   <td>
                     <button
                       className="btn btn-xs"
-                      onClick={() => handleRegDownloadPDF(123)}
+                      onClick={() => handleDownloadPDF(123)}
                     >
-                      Download
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      className="btn btn-xs"
-                      onClick={() => handlePayDownloadPDF(123)}
-                    >
-                      Download
+                      Download PDF
                     </button>
                   </td>
                   <td>
@@ -129,9 +95,9 @@ export default function () {
                 </tr>
               </tbody>
             </table>
-            {/* regPdf */}
+
             <div
-              id="makeRegPDF"
+              id="makePDF"
               hidden
               className="bg-blue-700  mx-auto"
               style={{ width: "100%", height: "100%" }}
@@ -141,20 +107,6 @@ export default function () {
                 style={{ width: "100%", height: "100%" }}
               >
                 <RegistrationFormPDF></RegistrationFormPDF>
-              </div>
-            </div>
-            {/* regPdf */}
-            <div
-              id="makePayPDF"
-              hidden
-              className="mx-auto"
-              style={{ width: "100%", height: "100%" }}
-            >
-              <div
-                className="px-10 py-10"
-                style={{ width: "100%", height: "100%" }}
-              >
-                <RegFormMoneyRecipt />
               </div>
             </div>
           </div>

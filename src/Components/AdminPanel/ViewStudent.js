@@ -14,12 +14,15 @@ export default function ViewStudent() {
 
   const deleteStudent = (id) => {
     setReLoader(!reLoader);
-    fetch(`http://localhost:5000/api/student/delete/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://cste-club-ibrahimecste.vercel.app/api/student/delete/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
@@ -32,7 +35,9 @@ export default function ViewStudent() {
   };
   useEffect(() => {
     setLoadingData(true);
-    fetch(`http://localhost:5000/api/student/add?batch=${batch}`)
+    fetch(
+      `https://cste-club-ibrahimecste.vercel.app/api/student/add?batch=${batch}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {

@@ -15,12 +15,14 @@ export default function AddStudent() {
   const [dept, setDept] = useState("");
   const [blood, setBlood] = useState("");
   const [address, setAddress] = useState("");
+  const token = JSON.parse(localStorage.getItem("UserDetails"));
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/student/add", {
+    fetch("https://cste-club-ibrahimecste.vercel.app/api/student/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${token?.token}`,
       },
       body: JSON.stringify({
         name,

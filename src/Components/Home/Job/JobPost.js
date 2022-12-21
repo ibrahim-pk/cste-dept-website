@@ -9,7 +9,7 @@ const JobPost = () => {
     setLoading(true);
     const fetchData = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/add/job?job=4"
+        "https://cste-club-ibrahimecste.vercel.app/api/add/job?job=4"
       );
       setAllJobPost(data?.jobList);
       setLoading(false);

@@ -39,7 +39,7 @@ export default function AddNotice() {
       return;
     } else {
       const { data } = await axios.post(
-        "http://localhost:5000/api/add/notice",
+        "https://cste-club-ibrahimecste.vercel.app/api/add/notice",
         {
           imgUrl,
           title,

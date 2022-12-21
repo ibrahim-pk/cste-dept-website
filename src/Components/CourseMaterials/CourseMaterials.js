@@ -7,7 +7,7 @@ export default function CourseMaterials() {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/add/material"
+        "https://cste-club-ibrahimecste.vercel.app/api/add/material"
       );
       setCourseMaterial(data.material);
       const user = JSON.parse(localStorage.getItem("UserDetails"));

@@ -10,7 +10,7 @@ export default function ViewNews() {
   const [allNews, setAllNews] = useState([]);
   const deleteHandle = async (id) => {
     const { data } = await axios.delete(
-      `http://localhost:5000/api/add/news/${id}`
+      `https://cste-club-ibrahimecste.vercel.app/api/add/news/${id}`
     );
     if (data.error) {
       toast.error(data.error);
@@ -23,7 +23,7 @@ export default function ViewNews() {
     setLoading(true);
     const fetchData = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/add/all/news"
+        "https://cste-club-ibrahimecste.vercel.app/api/add/all/news"
       );
       //console.log(data);
       setAllNews(data?.allNews);

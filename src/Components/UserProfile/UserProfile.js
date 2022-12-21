@@ -51,7 +51,7 @@ export default function () {
               <>
                 {page === "RegistrationView" && <RegistrationFormView />}
 
-                {page == "editProfile" && <EditProfile />}
+                {page == "editProfile" && <EditProfile id={id} />}
                 {page == "Result" && <Result />}
                 {page == "Suggestion" && <Suggestion />}
                 {page == "HSCForm" && <HSCForm />}
@@ -197,18 +197,18 @@ export default function () {
               </Link>
             </li>
             <li>
-              <button onClick={() => setPage("Registration")}>
-                Admit Card
+              <Link to="/admitform">
+                <button>Exam Fee</button>
+              </Link>
+            </li>
+            <li>
+              <button onClick={() => setPage("RegistrationView")}>
+                Registration Form Download
               </button>
             </li>
             <li>
               <button onClick={() => setPage("RegistrationView")}>
                 Admit Card Download
-              </button>
-            </li>
-            <li>
-              <button onClick={() => setPage("RegistrationView")}>
-                Registration Form Download
               </button>
             </li>
 
