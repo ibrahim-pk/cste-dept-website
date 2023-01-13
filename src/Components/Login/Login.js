@@ -75,7 +75,7 @@ export default function Login() {
           </div>
         </>
       )}
-      <div className="max-w-sm mx-auto text-center border mx-auto py-5 px-5">
+      <div className="max-w-sm mx-auto text-center border py-5 px-5">
         <form onSubmit={handleStudnetLogin}>
           <InputField
             setField={setStudentID}

@@ -41,10 +41,10 @@ export default function AddStudent() {
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
-          toast(data.error);
+          toast.error(data.error);
           return;
         } else {
-          toast(data.msg);
+          toast.success(data.msg);
           setName("");
           setDept("");
           setBlood("");

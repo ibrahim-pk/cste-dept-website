@@ -31,6 +31,9 @@ import ViewRegistrationPage from "./Components/UserProfile/RegistrationForm/View
 import AdmitCardForm from "./Components/UserProfile/AdmitCardForm.js/AdmitCardForm";
 import SuccessPayment from "./Components/SuccessPayment/SuccessPayment";
 import PrivateRouter from "./Components/Router/PrivateRouter";
+import PublicNotice from "./Components/AdminPanel/Notice/PublicNotice";
+import StudentNotice from "./Components/AdminPanel/Notice/StudentNotice";
+import PersonalNotice from "./Components/UserProfile/PersonalNotice";
 
 function App() {
   return (
@@ -82,6 +85,36 @@ function App() {
             </UserLayout>
           }
         ></Route>
+        <Route
+          path="/notice/public"
+          element={
+            <UserLayout>
+              <PrivateRouter>
+                <PublicNotice />
+              </PrivateRouter>
+            </UserLayout>
+          }
+        />
+        <Route
+          path="/notice/student"
+          element={
+            <UserLayout>
+              <PrivateRouter>
+                <StudentNotice />
+              </PrivateRouter>
+            </UserLayout>
+          }
+        />
+        <Route
+          path="/notice/student/:id"
+          element={
+            <UserLayout>
+              <PrivateRouter>
+                <PersonalNotice />
+              </PrivateRouter>
+            </UserLayout>
+          }
+        />
         <Route
           path="/myregistrationform"
           element={
