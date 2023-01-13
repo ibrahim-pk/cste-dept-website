@@ -174,7 +174,7 @@ const ProfileCard = ({ loginStudent }) => {
               <li tabIndex={0}>
                 <a>Notification</a>
                 <ul className="bg-green-700 noticeList">
-                  {allNotice.length > 0 ? (
+                  {allNotice?.length > 0 ? (
                     allNotice.map((item, idx) => (
                       <li>
                         <Link to={`/notice/student/${item._id}`}>
@@ -185,7 +185,9 @@ const ProfileCard = ({ loginStudent }) => {
                           >
                             <h1 className="text-lg">{item.title}</h1>
                             <h1 className="text-sm">Post:{item.date}</h1>
-                            <p className="text-xs">Seen:{item.visit.length}</p>
+                            <p className="text-xs">
+                              Seen:{item?.visit?.length}
+                            </p>
                           </div>
                         </Link>
                       </li>
