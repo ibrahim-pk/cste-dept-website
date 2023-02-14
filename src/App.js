@@ -34,6 +34,8 @@ import PrivateRouter from "./Components/Router/PrivateRouter";
 import PublicNotice from "./Components/AdminPanel/Notice/PublicNotice";
 import StudentNotice from "./Components/AdminPanel/Notice/StudentNotice";
 import PersonalNotice from "./Components/UserProfile/PersonalNotice";
+import Payment from "./Components/Home/Payment/Payment";
+import TeacherLogin from "./Components/Login/TeacherLogin";
 
 function App() {
   return (
@@ -48,10 +50,18 @@ function App() {
           }
         ></Route>
         <Route
-          path="/login"
+          path="/student/login"
           element={
             <UserLayout>
               <Login></Login>
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/teacher/login"
+          element={
+            <UserLayout>
+              <TeacherLogin></TeacherLogin>
             </UserLayout>
           }
         ></Route>
@@ -61,6 +71,16 @@ function App() {
             <UserLayout>
               <PrivateRouter>
                 <RegistrationForm />
+              </PrivateRouter>
+            </UserLayout>
+          }
+        ></Route>
+        <Route
+          path="/user/payment"
+          element={
+            <UserLayout>
+              <PrivateRouter>
+                <Payment />
               </PrivateRouter>
             </UserLayout>
           }

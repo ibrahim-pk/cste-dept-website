@@ -36,6 +36,7 @@ export default function AddStudent() {
         contactNo,
         batch,
         picture,
+        role: "student",
       }),
     })
       .then((res) => res.json())

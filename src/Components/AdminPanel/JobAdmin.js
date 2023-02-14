@@ -8,7 +8,9 @@ const JobAdmin = () => {
   const [imgUrl, setImageUrl] = useState("");
   const [name, setName] = useState("");
   const [joinDate, setJoinDate] = useState("");
-  const [position, setPosition] = useState();
+  const [position, setPosition] = useState("");
+  const [email, setEmail] = useState("");
+  const [fbLink, setFbLink] = useState("");
   const [company, setCompany] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -46,6 +48,8 @@ const JobAdmin = () => {
         {
           imgUrl,
           name,
+          email,
+          fbLink,
           joinDate,
           position,
           company,
@@ -58,6 +62,8 @@ const JobAdmin = () => {
       setJoinDate("");
       setPosition("");
       setCompany("");
+      setEmail("");
+      setFbLink("");
     }
   };
   return (
@@ -71,6 +77,20 @@ const JobAdmin = () => {
             fieldValue={name}
             requiredField="true"
             label="Name"
+          ></InputField>
+          <InputField
+            type="text"
+            setField={setEmail}
+            fieldValue={email}
+            requiredField="true"
+            label="Email"
+          ></InputField>
+          <InputField
+            type="text"
+            setField={setFbLink}
+            fieldValue={fbLink}
+            requiredField="true"
+            label="Facebook Link"
           ></InputField>
           <InputField
             type="text"

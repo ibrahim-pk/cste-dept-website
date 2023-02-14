@@ -3,14 +3,14 @@ import InputField from "../Common/InputField";
 import SubmitBtn from "../Common/SubmitBtn";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../../Firebase/FirebaseConfig";
-export default function Login() {
+export default function TeacherLogin() {
   const provider = new GoogleAuthProvider();
   const auth = getAuth(app);
-  const [studentID, setStudentID] = useState("");
-  const [stduentPassword, setStudentPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
   const [logUser, setLogUser] = useState(false);
   const [error, setError] = useState("");
 
@@ -20,26 +20,20 @@ export default function Login() {
   const handleStudnetLogin = async (e) => {
     e.preventDefault();
     setError("");
-    if (studentID.trim().length < 10) {
-      setError("Student ID invalid.");
-      return;
-    } else if (stduentPassword.length < 6) {
+    if (Password.length < 6) {
       setError("Password Should be greater than 6 characters.");
     } else {
-      const { data } = await axios.post(
-        "https://cste-club-ibrahimecste.vercel.app/api/user/login",
-        {
-          studentID,
-          stduentPassword,
-        }
-      );
+      const { data } = await axios.post("https//localhost:5000", {
+        email,
+        Password,
+      });
       if (data.error) {
         toast.error(data.error);
       } else {
         localStorage.setItem("UserDetails", JSON.stringify(data));
         setLogUser(true);
-        setStudentID("");
-        setStudentPassword("");
+        setEmail("");
+        setPassword("");
         setError("");
         toast.success(data?.msg);
         window.location.href = "/";
@@ -51,12 +45,9 @@ export default function Login() {
     signInWithPopup(auth, provider)
       .then(async (result) => {
         const user = result.user;
-        const { data } = await axios.post(
-          "https://cste-club-ibrahimecste.vercel.app/api/user/login",
-          {
-            eduMail: user.email,
-          }
-        );
+        const { data } = await axios.post("localhost", {
+          eduMail: user.email,
+        });
         if (data.error) {
           toast.error(data?.error);
         } else {
@@ -80,7 +71,7 @@ export default function Login() {
   }, [navigate, from, logUser]);
   return (
     <div className="md:mt-28 mt-16 mx-auto text-center">
-      <h2 className="text-3xl mb-4">Login For Student</h2>
+      <h2 className="text-3xl mb-4">Login For Teacher</h2>
 
       {error && (
         <>
@@ -107,15 +98,15 @@ export default function Login() {
       <div className="max-w-sm mx-auto text-center border py-5 px-5">
         <form onSubmit={handleStudnetLogin}>
           <InputField
-            setField={setStudentID}
-            fieldValue={studentID}
-            label="Student ID"
-            type="text"
+            setField={setEmail}
+            fieldValue={email}
+            label="Email"
+            type="email"
           />
 
           <InputField
-            setField={setStudentPassword}
-            fieldValue={stduentPassword}
+            setField={setPassword}
+            fieldValue={Password}
             label="Password"
             type="password"
           />

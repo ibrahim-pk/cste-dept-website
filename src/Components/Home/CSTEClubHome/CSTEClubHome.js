@@ -1,13 +1,11 @@
 import React from "react";
 import styles from "../../CSTEClub/CSTEClub.module.css";
-import slider4 from "../../../img/slider4.jpg";
 import { Link } from "react-router-dom";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 export default function CSTEClubHome() {
   return (
-    <div className="mx-auto max-w-screen-xl">
-      <h1 className="text-2xl font-semibold my-1">CSTE CLUB</h1>
-      <hr />
+    <div className="mx-auto m-full max-w-screen-xl my-4 px-5">
+      <h2 className="text-2xl font-semibold my-5">CSTE CLUB</h2>
 
       <div className="hero m-2 my-5 lg:p-10 md:p-10 card shadow-xl border items-center">
         <div className="hero-content text-left flex-col-reverse lg:flex-row justify-between w-full px-10">
@@ -22,7 +20,7 @@ export default function CSTEClubHome() {
                 </li>
                 <li className={`step  ${styles.step}`}>Web Development</li>
                 <li className={`step  ${styles.step}`}>Apps Development</li>
-                <li className={`step  ${styles.step}`}>Cyber Securite</li>
+                <li className={`step  ${styles.step}`}>Cyber Sec urite</li>
               </ul>
             </AnimationOnScroll>
           </div>

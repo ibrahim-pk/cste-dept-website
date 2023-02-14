@@ -1,11 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import CarouselHome from "./Carousel/CarouselHome";
 import CSTEClubHome from "./CSTEClubHome/CSTEClubHome";
 import MessageFromChairman from "./MessageFromChairman/MessageFromChairman";
 import NewsHome from "./News/News";
 import NoticeHome from "./Notice/NoticeHome";
-import ResearchHome from "./Research/Research";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import JobPost from "./Job/JobPost";
 

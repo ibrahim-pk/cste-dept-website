@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./MessageFromChairman.module.css";
 import axios from "axios";
+import AnimatedText from "react-animated-text-content";
 export default function MessageFromChairman() {
   const [sms, setSms] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -22,7 +23,7 @@ export default function MessageFromChairman() {
         <div className="mx-auto max-w-screen-xl	  px-4 mt-16 mb-4 text-center">
           <div role="status">
             <svg
-              class="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+              className="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +37,7 @@ export default function MessageFromChairman() {
                 fill="currentFill"
               />
             </svg>
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
       ) : (
@@ -58,10 +59,49 @@ export default function MessageFromChairman() {
                   <h3>{sms[0]?.role}</h3>
                 </div>
                 <div className="flex-1 w-full">
-                  <h2 className="card-title my-4 md:my-0">
-                    Messaege From Chairman
-                  </h2>
-                  <p className="mt-4">{sms[0]?.details}</p>
+                  <div className="card-title my-4 md:my-2">
+                    <AnimatedText
+                      type="lights" // animate words or chars
+                      animation={{
+                        x: "200px",
+                        y: "-20px",
+                        scale: 1.1,
+                        ease: "ease-in-out",
+                      }}
+                      animationType="float"
+                      interval={0.06}
+                      duration={0.8}
+                      tag="p"
+                      className="animated-paragraph"
+                      includeWhiteSpaces
+                      threshold={0.1}
+                      rootMargin="20%"
+                    >
+                      Messaege From Chairman
+                    </AnimatedText>
+                  </div>
+
+                  <div>
+                    <AnimatedText
+                      type="wave" // animate words or chars
+                      animation={{
+                        x: "200px",
+                        y: "-20px",
+                        scale: 1.1,
+                        ease: "ease-in-out",
+                      }}
+                      animationType="wave"
+                      interval={0.06}
+                      duration={0.5}
+                      tag="p"
+                      className="animated-paragraph"
+                      includeWhiteSpaces
+                      threshold={0.1}
+                      rootMargin="20%"
+                    >
+                      {sms[0]?.details}
+                    </AnimatedText>
+                  </div>
                 </div>
               </div>
             </div>

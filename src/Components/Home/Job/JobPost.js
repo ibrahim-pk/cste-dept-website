@@ -17,13 +17,13 @@ const JobPost = () => {
     fetchData();
   }, []);
   return (
-    <div className="mx-auto max-w-screen-xl my-6">
+    <div className="mx-auto max-w-screen-xl my-6 px-5">
       <h1 className="text-2xl my-5 font-semibold">Latest Job Post</h1>
       {loading ? (
         <div className="mx-auto max-w-screen-xl	  px-4 mt-16 mb-4 text-center">
           <div role="status">
             <svg
-              class="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+              className="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const JobPost = () => {
                 fill="currentFill"
               />
             </svg>
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
       ) : (
@@ -51,6 +51,10 @@ const JobPost = () => {
                   </div>
                   <div className="cardJobDetails">
                     <h1 className="font-bold text-xl my-1">{item.name}</h1>
+                    <div className="flex jobPersonIcon justify-center">
+                      <i className="fab fa-facebook mx-1"></i>
+                      <i className="fas fa-envelope mx-1"></i>
+                    </div>
                     <h1 className="font-semibold  my-1">{item.position}</h1>
                     <h1 className="font-semibold  my-1">{item.company}</h1>
                     <h1 className="font-semibold  my-1">

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
 const PrivateRouter = ({ children }) => {
@@ -6,7 +6,7 @@ const PrivateRouter = ({ children }) => {
 
   let location = useLocation();
   if (!rol?.student) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/student/login" state={{ from: location }} replace />;
   }
 
   return children;

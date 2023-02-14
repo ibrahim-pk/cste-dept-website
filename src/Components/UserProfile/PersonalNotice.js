@@ -25,7 +25,7 @@ const PersonalNotice = () => {
       });
   }, []);
   return (
-    <div className="max-w-screen-lg mx-auto p-5 my-10">
+    <div className="max-w-screen-lg mx-auto p-5  my-10">
       {yourNotice && !loader ? (
         <div className="md:flex gap-4">
           <div className="card md:flex-1 md:w-64  shadow-2xl p-4">

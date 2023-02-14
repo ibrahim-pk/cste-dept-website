@@ -37,7 +37,7 @@ export default function Notices() {
           <div className="mx-auto max-w-screen-xl	  px-4 mt-16 mb-4 text-center">
             <div role="status">
               <svg
-                class="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                className="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ export default function Notices() {
                   fill="currentFill"
                 />
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
           </div>
         ) : (
@@ -86,9 +86,11 @@ export default function Notices() {
               )}
             </div>
             <div className="overflow-hidden">
-              <div class="btn-group grid grid-cols-2 w-80 mt-5 float-right">
-                <button class="btn btn-outline btn-xs">Previous page</button>
-                <button class="btn btn-outline btn-xs">Next</button>
+              <div className="btn-group grid grid-cols-2 w-80 mt-5 float-right">
+                <button className="btn btn-outline btn-xs">
+                  Previous page
+                </button>
+                <button className="btn btn-outline btn-xs">Next</button>
               </div>
             </div>
           </div>

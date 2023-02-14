@@ -159,9 +159,9 @@ export default function Researches() {
         </div>
       </div>
       <div className="overflow-hidden">
-        <div class="btn-group grid grid-cols-2 w-80 mt-5 float-right">
-          <button class="btn btn-outline btn-xs">Previous page</button>
-          <button class="btn btn-outline btn-xs">Next</button>
+        <div className="btn-group grid grid-cols-2 w-80 mt-5 float-right">
+          <button className="btn btn-outline btn-xs">Previous page</button>
+          <button className="btn btn-outline btn-xs">Next</button>
         </div>
       </div>
     </div>

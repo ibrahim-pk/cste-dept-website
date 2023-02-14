@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./../../img/logo.png";
 import style from "./Footer.module.css";
+
 export default function Footer() {
+  // const [location, setLocation] = useState({});
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const { data } = await axios.get(
+  //       "https://cste-club-ibrahimecste.vercel.app/user/location"
+  //     );
+  //     setLocation(data?.location);
+  //   };
+  //   fetchData();
+  // }, []);
+
   return (
     <>
       <div className="w-full border-t pt-12 px-2 mt-12">
@@ -72,6 +84,10 @@ export default function Footer() {
           Copyright &copy; {new Date().getFullYear()} CSTE, NSTU | All Rights
           Reserved
         </p>
+        {/* <p>
+          <i className="fas mx-1 fa-map-marker-alt"></i>
+          {location?.city}
+        </p> */}
       </div>
     </>
   );

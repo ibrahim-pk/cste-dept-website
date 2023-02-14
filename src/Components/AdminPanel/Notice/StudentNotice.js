@@ -38,41 +38,46 @@ const StudentNotice = () => {
       });
   };
   return (
-    <div className="max-w-screen-lg mx-auto my-10">
-      <div className="card shadow-xl w-96 p-5">
-        <form onSubmit={handleNews}>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="form-control input input-bordered input-info input-xs w-full max-w-xs p-5 my-2"
-            placeholder="Notice Title"
-            required
-          />
-          <textarea
-            type="text"
-            value={details}
-            onChange={(e) => setDetails(e.target.value)}
-            className="input form-control input-bordered input-info input-xs w-full max-w-xs p-5  my-2"
-            placeholder="Notice Write.."
-            required
-          />
-          <select
-            onChange={(e) => setBatch(e.target.value)}
-            className="select form-control w-96 select-info max-w-xs my-2"
-          >
-            <option disabled selected>
-              Which Batch?
-            </option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-          </select>
-          <button className="form-control btn btn-sm">Submit</button>
-        </form>
+    <div className="flex justify-center my-10 px-10">
+      <div>
+        <div className="card shadow-xl w-96 p-5">
+          <h1 className="text-center font-semibold text-xl py-5">
+            Private Post
+          </h1>
+          <form onSubmit={handleNews}>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="form-control input input-bordered input-info input-xs w-full max-w-xs p-5 my-2"
+              placeholder="Notice Title"
+              required
+            />
+            <textarea
+              type="text"
+              value={details}
+              onChange={(e) => setDetails(e.target.value)}
+              className="input form-control input-bordered input-info input-xs w-full max-w-xs p-5  my-2"
+              placeholder="Notice Write.."
+              required
+            />
+            <select
+              onChange={(e) => setBatch(e.target.value)}
+              className="select form-control w-96 select-info max-w-xs my-2"
+            >
+              <option disabled selected>
+                Which Batch?
+              </option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+            </select>
+            <button className="form-control btn btn-sm">Submit</button>
+          </form>
+        </div>
+        <Toaster />
       </div>
-      <Toaster />
     </div>
   );
 };

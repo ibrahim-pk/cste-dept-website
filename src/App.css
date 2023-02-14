@@ -17,8 +17,8 @@
     border-radius: 0px;       /* roundness of the scroll thumb */
   }
 .sliderImage{
-    max-height: 75vh;
-    min-height: 75vh;
+    max-height: 80vh;
+    min-height: 80vh;
 }
 
 .thumbs-wrapper.axis-vertical {
@@ -34,6 +34,11 @@
 .submenu-left{
     right: 100%;
     left: auto;
+}
+/* job */
+.jobPersonIcon i{
+    font-size: 18px;
+    cursor: pointer;
 }
 /* profileCard */
 .ProfileAvatar{

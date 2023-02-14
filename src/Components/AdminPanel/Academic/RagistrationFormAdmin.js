@@ -3,24 +3,24 @@ import toast, { Toaster } from "react-hot-toast";
 import InputField from "../../Common/InputField";
 import SubmitBtn from "../../Common/SubmitBtn";
 const RagistrationFormAdmin = () => {
+  const token = JSON.parse(localStorage.getItem("UserDetails"));
   const [startDate, setStartDate] = useState("");
   const [endtDate, setEndDate] = useState("");
   const [yearAndTerm, setYearAndTerm] = useState("");
-  const [abashikOnabashik, setAbashikOnabashik] = useState("");
-  const [fee, setFee] = useState("");
+  const [batch, setBatch] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://cste-club-ibrahimecste.vercel.app/api/add/curriculum", {
-      method: "POST",
+    fetch("https://cste-club-ibrahimecste.vercel.app/api/add/reg/time", {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${token?.token}`,
       },
       body: JSON.stringify({
         startDate,
         endtDate,
         yearAndTerm,
-        fee,
-        abashikOnabashik,
+        batch,
       }),
     })
       .then((res) => res.json())
@@ -29,12 +29,11 @@ const RagistrationFormAdmin = () => {
           toast.success(data.error);
           return;
         } else {
-          toast(data.msg);
+          toast.success(data.msg);
           setStartDate("");
           setEndDate("");
           setYearAndTerm("");
-          setAbashikOnabashik("");
-          setFee("");
+          setBatch("");
         }
       });
   };
@@ -60,7 +59,7 @@ const RagistrationFormAdmin = () => {
             requiredField="true"
             label="End Date"
           ></InputField>
-          <div className="md:flex">
+          <div className="md:flex justify-between">
             <div className="my-2 w-full">
               <label for="">Select Year and Term:</label>
               <br />
@@ -84,32 +83,17 @@ const RagistrationFormAdmin = () => {
                 <option value="52">Y-5,T-2</option>
               </select>
             </div>
-            <div className="my-2 w-full">
-              <label for="">Abashik/Onabashik:</label>
-              <br />
-              <select
-                onChange={(e) => setAbashikOnabashik(e.target.value)}
-                className="select 
-            select-bordered form-control w-full max-w-xs"
-              >
-                <option disabled selected>
-                  Select
-                </option>
-                <option value="abashik">Abashik</option>
-                <option value="onabashik">Onabashik</option>
-              </select>
-            </div>
+            <InputField
+              type="number"
+              setField={setBatch}
+              fieldValue={batch}
+              requiredField="true"
+              label="Batch"
+            ></InputField>
           </div>
-          <InputField
-            type="number"
-            setField={setFee}
-            fieldValue={fee}
-            requiredField="true"
-            label="Fee"
-          ></InputField>
 
           <div className="w-full text-right">
-            <SubmitBtn value="Add Student"></SubmitBtn>
+            <SubmitBtn value="Submit"></SubmitBtn>
             <Toaster />
           </div>
         </form>

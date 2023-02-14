@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./../../img/logo.png";
+import "../Navbar/style.css";
 export default function NavBarRedisgn() {
   const [userInfo, setUserInfo] = useState({});
   const [reLoader, setReLoader] = useState(false);
 
   const logOut = () => {
     localStorage.removeItem("UserDetails");
-    setReLoader(!reLoader);
+    window.location.href = "/";
   };
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("UserDetails"));
+    let user = JSON.parse(localStorage.getItem("UserDetails"));
     setUserInfo(user?.student);
   }, [reLoader]);
   const id = userInfo?.studentId;
@@ -122,10 +123,7 @@ export default function NavBarRedisgn() {
               )}
 
               <li>
-                <Link to="/registrationform">REGISTRATION</Link>
-              </li>
-              <li>
-                <Link to="/admitform">EXAM FEE</Link>
+                <Link to="/user/payment">PAYMENT</Link>
               </li>
               <li>
                 <Link to="/notices">NOTICE</Link>
@@ -173,12 +171,18 @@ export default function NavBarRedisgn() {
                     </li>
                   ) : (
                     <div>
-                      <Link
+                      <label
+                        htmlFor="my-modal-3"
+                        className="btn btn-md w-full  bg-blue-900 hover:hover:bg-blue-800 text-white"
+                      >
+                        Login
+                      </label>
+                      {/* <Link
                         to="/login"
                         className="btn   btn-md w-full  bg-blue-900 hover:hover:bg-blue-800 text-white"
                       >
                         LOGIN
-                      </Link>
+                      </Link> */}
                     </div>
                   )}
                 </div>
@@ -232,10 +236,7 @@ export default function NavBarRedisgn() {
               )}
             </li>
             <li>
-              <Link to="/registrationform">REGISTRATION</Link>
-            </li>
-            <li>
-              <Link to="/admitform">EXAM FEE</Link>
+              <Link to="/user/payment">PAYMENT</Link>
             </li>
             <li>
               <Link to="/notices">NOTICE</Link>
@@ -309,15 +310,39 @@ export default function NavBarRedisgn() {
             </div>
           ) : (
             <div>
-              <Link
-                to="/login"
-                className="btn   btn-xs  bg-blue-900 hover:hover:bg-blue-800 text-white"
+              <label
+                htmlFor="my-modal-3"
+                className="btn btn-xs w-full  bg-blue-900 hover:hover:bg-blue-800 text-white"
               >
-                LOGIN
-              </Link>
+                Login
+              </label>
             </div>
           )}
         </div>
+      </div>
+      {/* modal */}
+      <div>
+        <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+        <label htmlFor="my-modal-3" className="modal cursor-pointer">
+          <label className="modal-box relative" htmlFor="">
+            <h3 className="text-xl text-center pt-3 my-2 font-bold">
+              Login For Dashboard
+            </h3>
+            <hr />
+            <Link to="/teacher/login">
+              <button className="btn teacherMenu w-full my-2">Teacher</button>
+            </Link>
+            <br />
+            <Link to="/student/login">
+              <button
+                htmlFor="my-modal-3"
+                className="btn studentMenu w-full my-2"
+              >
+                Student
+              </button>
+            </Link>
+          </label>
+        </label>
       </div>
     </div>
   );

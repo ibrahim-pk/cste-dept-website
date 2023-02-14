@@ -16,7 +16,7 @@ export default function CarouselHome() {
           <img src={slider4} className="sliderImage" />
         </div>
       </Carousel>
-      <div className="mx-auto w-full text-center mt-[-70px] zIndexInc">
+      <div className="mx-auto w-full text-center mt-[-80px] md:mt-[-115px] zIndexInc">
         <CounterStat />
       </div>
     </div>

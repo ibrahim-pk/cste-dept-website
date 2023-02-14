@@ -3,6 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function ViewTeacher() {
   const [allTeacher, setAllTeacher] = useState("");
+  const [rank, setRank] = useState();
   const deleteTeacher = (id) => {
     fetch(
       `https://cste-club-ibrahimecste.vercel.app/api/teacher/delete/${id}`,
@@ -44,11 +45,11 @@ export default function ViewTeacher() {
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>
-            <tr>
+            <tr className="text-center">
               <th>Name</th>
-              <th>Email</th>
               <th>Mobile</th>
-              <th>Edit</th>
+              <th>Email</th>
+              <th>Rank</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -83,10 +84,16 @@ export default function ViewTeacher() {
                   <td>{item.mobile}</td>
                   <td>{item.email}</td>
 
-                  <th>
-                    <button className="btn btn-ghost btn-xs">edit</button>
-                  </th>
-                  <th>
+                  <td>
+                    <input
+                      className="w-20"
+                      type="number"
+                      placeholder="Rank"
+                      value={rank}
+                      onChange={(e) => setRank(e.target.value)}
+                    />
+                  </td>
+                  <td>
                     <button
                       onClick={() => deleteTeacher(item._id)}
                       className="btn btn-ghost btn-xs"
@@ -94,7 +101,7 @@ export default function ViewTeacher() {
                       delete
                     </button>
                     <Toaster />
-                  </th>
+                  </td>
                 </tr>
               ))
             ) : (
